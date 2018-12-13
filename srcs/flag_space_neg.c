@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent.c                                 :+:      :+:    :+:   */
+/*   flag_space1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/12 10:35:39 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/13 14:21:41 by tcherret         ###   ########.fr       */
+/*   Created: 2018/12/12 17:05:11 by tcherret          #+#    #+#             */
+/*   Updated: 2018/12/13 14:42:37 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_print_percent(const char *f, int t)
+void	flag_space_neg(const char *f, int nb, int t, int *ret)
 {
-	int nb;
+	int		k;
+	int		j;
+	char	c;
 
-	nb = 1;
-	flag_space(f, nb, t, &nb);
-	ft_putchar('%');
-	flag_space_neg(f, nb, t, &nb);
-	return (nb);
+	j = 0;
+	c = ' ';
+	while (f[t] != '-') // nein?
+		t++;
+	k = ft_atoi(&f[t]);
+	if (k < 0)
+	{ 
+		k = -k;
+		while (j < k - nb)
+		{
+			ft_putchar(c);
+			j++;
+			(*ret)++;
+		}
+	}
 }

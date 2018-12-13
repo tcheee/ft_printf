@@ -6,17 +6,31 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:56:48 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/11 17:05:06 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/13 14:21:45 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_print_octal(va_list ap)
+int		ft_print_octal(va_list ap, const char *f, int i, int t)
 {
-	unsigned int	nb;
+	unsigned int	var;
+	int nb;
 
-	nb = va_arg(ap, unsigned int);
-	ft_putnbr_base(nb, 8);
-	return (0);
+	nb = 0;
+	if (f[i - 1] == 'l' && f[i - 2] == 'l')
+		var = va_arg(ap, long long);
+	else if (f[i - 1] == 'l')
+		var = va_arg(ap, long);
+	else 
+		var = va_arg(ap, unsigned int);
+	if (f[i - 1] == 'h' && f[i - 2] == 'h')
+		var = (char)var;
+	else if (f[i - 1] == 'h')
+		var = (short)var;
+	ft_nblen(var, 8, &nb);
+	flag_space(f, nb, t, &nb);
+	ft_putnbr_base(var, 8);
+	flag_space_neg(f, nb, t, &nb);
+	return (nb);
 }

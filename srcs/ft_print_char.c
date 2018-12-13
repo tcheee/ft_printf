@@ -6,18 +6,22 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:18:03 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/12 15:14:01 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/13 14:21:53 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_print_char(va_list ap)
+int		ft_print_char(va_list ap, const char *f, int t)
 {
 	char	var;
+	int		nb;
 
+	nb = 1;
 	var = va_arg(ap, int);
+	flag_space(f, nb, t, &nb);
 	ft_putchar(var);
+	flag_space_neg(f, nb, t, &nb);
 	var = (char)var;
-	return (0);
+	return (nb);
 }
