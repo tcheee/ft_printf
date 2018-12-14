@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:54:04 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/14 16:43:00 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/14 18:54:29 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,13 @@ void	flag_space(const char *f, int nb, int t, int *ret)
 			&& f[t] != '3' && f[t] != '4' && f[t] != '5'
 			&& f[t] != '6' && f[t] != '7' && f[t] != '8'
 			&& f[t] != '9' && f[t] != '\0') // nein !
+	{
+		if (f[t] == '-')
+			break ;
+		if (f[t] == '.')
+			break ;
 		t++;
+	}
 	if (f[t] == '0')
 		c = '0';
 	print_flag_plus_space1(b, c);

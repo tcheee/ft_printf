@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 17:05:11 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/14 16:36:46 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/14 17:49:28 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	flag_space_neg(const char *f, int nb, int t, int *ret)
 
 	j = 0;
 	c = ' ';
-	while (f[t] != '-')
+	while (f[t] != '-' && f[t] != '\0')
 		t++;
 	k = ft_atoi(&f[t]);
 	if (k < 0)

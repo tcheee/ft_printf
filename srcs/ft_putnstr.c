@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_putnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/11 10:44:41 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/14 18:57:59 by tcherret         ###   ########.fr       */
+/*   Created: 2018/12/14 17:11:20 by tcherret          #+#    #+#             */
+/*   Updated: 2018/12/14 17:12:44 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../includes/ft_printf.h"
 
-int		main()
+void	ft_nputstr(char const *str, int size)
 {
-	char	*str;
-	char	*str1;
-	int		nb;
-	int		y;
-	int		y1;
+	int i;
 
-
-	//ft_putnbr(ft_atoi("10"));
-	str = "test";
-	str1 = "pour comprendre les strings";
-	nb = 4200;
-	y = printf("test %.10d !\n", nb);
-	ft_putnbr(y);
-	ft_putchar('\n');
-	y1 = ft_printf("test %.10d !\n", nb);
-	ft_putnbr(y1);
-	//ft_nputstr(str1, 2);
-	//ft_putchar('\n');
+	i = 0;
+	while (str[i] != '\0' && i < size)
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
 }
