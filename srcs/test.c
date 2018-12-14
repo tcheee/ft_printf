@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 10:44:41 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/13 14:40:27 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/14 16:18:14 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ int		main()
 	int y1;
 
 
+	//ft_putnbr(ft_atoi("10"));
 	str = "test";
 	str1 = "pour comprendre les strings";
-	nb = 42000;
-	y = printf("test %10d !\n", nb);
+	nb = 42;
+	y = printf("test %+010d !\n", nb);
 	ft_putnbr(y);
 	ft_putchar('\n');
-	y1 = ft_printf("test %10d !\n", nb);
+	y1 = ft_printf("test %+010d !\n", nb);
 	ft_putnbr(y1);
 	//ft_putchar('\n');
 }

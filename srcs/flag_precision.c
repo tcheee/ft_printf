@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   flag_precision.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/11 10:48:20 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/14 16:27:27 by tcherret         ###   ########.fr       */
+/*   Created: 2018/12/13 14:51:56 by tcherret          #+#    #+#             */
+/*   Updated: 2018/12/14 16:21:34 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_printf(const char *format, ...)
-{
-	va_list	ap;
-	int		i;
-	int		nb;
-	int		sum;
+// a checker !!!
 
-	va_start(ap, format);
-	i = 0;
-	sum = 0;
-	while (format[i] != '\0')
+int		flag_precision(const char *f, int nb, int t, int *ret)
+{
+	char	*flag;
+	int		k;
+	int		size;
+
+	k = 0;
+	while (f[t] != '.')
+		t++;
+	while (f[t] == '.')
+		t++;
+	t++;
+	while (f[t] >= '0' && f[t] <= '9')
 	{
-		if (format[i] == '%')
-		{
-			i++;
-			if ((nb = dispatcher(ap, i, format)) == -1)
-				return (-1);
-			increment(format, &i);
-			i++;
-			sum += nb;
-		}
-		ft_putchar(format[i]);
-		sum++;
-		i++;
+		flag[k] = f[t];
+		k++;
+		t++;
 	}
-	va_end(ap);
-	return (sum);
+	size = ft_atoi(flag);
+	return (size);
 }
