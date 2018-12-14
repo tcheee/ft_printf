@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:56:48 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/13 14:21:45 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/14 19:59:37 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int		ft_print_octal(va_list ap, const char *f, int i, int t)
 {
 	unsigned int	var;
-	int nb;
+	int				nb;
+	int				size;
 
 	nb = 0;
 	if (f[i - 1] == 'l' && f[i - 2] == 'l')
@@ -29,7 +30,10 @@ int		ft_print_octal(va_list ap, const char *f, int i, int t)
 	else if (f[i - 1] == 'h')
 		var = (short)var;
 	ft_nblen(var, 8, &nb);
+	size = nb;
 	flag_space(f, nb, t, &nb);
+	flag_hasho(f, t, &nb);
+	flag_precision_nb(f, size, t, &nb);
 	ft_putnbr_base(var, 8);
 	flag_space_neg(f, nb, t, &nb);
 	return (nb);
