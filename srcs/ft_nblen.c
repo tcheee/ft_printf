@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 17:50:54 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/12 17:57:37 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/14 19:11:04 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_nblen(unsigned long long nb, int base, int *sum)
 {
-	if (nb < base)
+	if (nb < (unsigned long long)base)
 	{
 		if (nb < 10)
 			(*sum)++;
