@@ -27,8 +27,8 @@ void	ft_putnbr_double(double nb, int size)
 {	
 	int x;
 	int i;
-	double y;
-	double tmp;
+	float y;
+	float tmp;
 	unsigned long long	ret;
 
 	i = 0;
