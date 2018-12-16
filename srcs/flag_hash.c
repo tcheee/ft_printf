@@ -66,4 +66,20 @@ void	flag_hasho(const char *f, int t, int *ret)
 	}
 }
 
-//void	flag_hashfloat(const char)
+void	flag_hashf(const char *f, int t, int *ret)
+{
+	int b;
+
+	b = 0;
+	while (f[t] != '\0')
+	{
+		if (f[t] == '#')
+			b = 1;
+		t++;
+	}
+	if (b == 1)
+	{
+		ft_putchar('.');
+		(*ret)++;
+	}
+}

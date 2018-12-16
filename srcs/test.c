@@ -25,11 +25,11 @@ int		main()
 	//ft_putnbr(ft_atoi("10"));
 	str = "test";
 	str1 = "pour comprendre les strings";
-	nb = 42.42;
-	y = printf("test %f !\n", nb);
+	nb = 4.1274;
+	y = printf("1: test %.4f !\n", nb);
 	ft_putnbr(y);
 	ft_putchar('\n');
-	y1 = ft_printf("test %f !\n", nb);
+	y1 = ft_printf("2: test %.4f !\n", nb);
 	ft_putnbr(y1);
 	//ft_nputstr(str1, 2);
 	//ft_putchar('\n');

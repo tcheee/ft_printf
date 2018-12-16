@@ -12,23 +12,37 @@
 
 #include "../includes/ft_printf.h"
 
-int		ft_print_float(va_list ap, const char *f, int i)
+int		ft_print_float(va_list ap, const char *f, int i, int t)
 {
 	double var;
-	//int	nb;
-	//int size;
+	int	nb;
+	int size;
 
+	nb = 0;
 	if (f[i - 1] == 'L')
 		var = va_arg(ap, long double);
 	else
 		var = va_arg(ap, double);
-	//nb = ft_nblen_double();
-	//size = flag_precision(f, nb, t);
-	//flag_space(f, nb, t, &nb);
-	//flag_hashf(f, t, &nb);
-	ft_putnbr_double(var);
-	//flag_space_neg(f, nb, t, &nb);
+	ft_nblen_double(var, &nb);
+	size = flag_precision(f, nb, t);
+	if (size == -1)
+		size = 6;
+	else if (size > 0)
+		nb = nb - (6 - size);
+	//ft_putnbr(size);
+	//ft_putchar('\n');
+	flag_space(f, nb, t, &nb);
+	if (size <= 0)
+	{
+		nb = nb - 7;
+		ft_putnbr((int)var);
+	}
+	else
+		ft_putnbr_double(var, size);
+	if (size <= 0)
+		flag_hashf(f, t, &nb);
+	flag_space_neg(f, nb, t, &nb);
 	if (f[i - 1] != 'l')
 		var = (float)var;
-	return (0);
+	return (nb);
 }

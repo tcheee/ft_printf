@@ -35,7 +35,7 @@ int		dispatcher(va_list ap, int i, const char *f)
 	else if (f[i] == 'X')
 		return (ft_print_uhexmaj(ap, f, i, t));
 	else if (f[i] == 'f')
-		return (ft_print_float(ap, f, i));
+		return (ft_print_float(ap, f, i, t));
 	else if (f[i] == '%')
 		return (ft_print_percent(f, t));
 	return (-1);
