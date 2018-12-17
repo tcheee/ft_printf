@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   increment.c                                        :+:      :+:    :+:   */
+/*   ft_nblen_unsign.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/12 14:34:20 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/17 12:19:05 by tcherret         ###   ########.fr       */
+/*   Created: 2018/12/17 17:11:49 by tcherret          #+#    #+#             */
+/*   Updated: 2018/12/17 17:15:00 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	increment(const char *format, int *i)
+void	ft_nblen_unsign(unsigned long long nb, int base, int *ret)
 {
-	int j;
-
-	j = 0;
-	while (format[*i] != 'c' && format[*i] != 's' && format[*i] != 'p'
-			&& format[*i] != 'd' && format[*i] != 'i' && format[*i] != 'o'
-			&& format[*i] != 'u' && format[*i] != 'x' && format[*i] != 'X'
-			&& format[*i] != 'f' && format[*i] != '%' && format[*i] != '\0')
-		(*i) = *i + 1;
+	if (nb < (unsigned long long)base)
+	{
+		if (nb < 10)
+			(*ret)++;
+		else
+			(*ret)++;
+		return ;
+	}
+	ft_nblen_unsign(nb / base, base, ret);
+	ft_nblen_unsign(nb % base, base, ret);
 }

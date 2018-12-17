@@ -6,15 +6,13 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:51:56 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/14 18:56:22 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/17 11:51:51 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-// a checker !!!
-
-int		flag_precision(const char *f, int nb, int t)
+int		flag_precision(const char *f, int t)
 {
 	char	*flag;
 	int		k;
@@ -47,17 +45,14 @@ int		flag_precision(const char *f, int nb, int t)
 int		flag_precision_nb(const char *f, int nb, int t, int *ret)
 {
 	char	*flag;
-	int		k;
 	int		size;
 
-	size = flag_precision(f, nb, t);
+	size = flag_precision(f, t);
 	while (size > nb)
 	{
 		size--;
 		ft_putchar('0');
 		(*ret)++;
 	}
-	if (k == 0)
-		size = -5;
 	return (size);
 }

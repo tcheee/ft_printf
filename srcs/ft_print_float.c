@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:23:41 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/14 20:18:21 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/17 11:50:27 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_print_float(va_list ap, const char *f, int i, int t)
 	else
 		var = va_arg(ap, double);
 	ft_nblen_double(var, &nb);
-	size = flag_precision(f, nb, t);
+	size = flag_precision(f, t);
 	if (size == -1)
 		size = 6;
 	else if (size > 0)

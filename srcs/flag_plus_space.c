@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:22:43 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/13 14:39:18 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/17 14:05:20 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ int		flag_plus_space(const char *f, int *nb, int t, int *ret)
 			(*ret)++;
 		}
 		z++;
+	}
+	if (f[z] == '\0')
+	{
+		b = 0;
+		(*ret)--;
 	}
 	return (b);
 }

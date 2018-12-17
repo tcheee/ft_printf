@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 17:05:11 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/14 17:49:28 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/17 15:26:45 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,28 @@ void	flag_space_neg(const char *f, int nb, int t, int *ret)
 		}
 	}
 }
+
+int		flag_space_neg_nb_error(const char *f, int t, int *ret)
+{
+	int		k;
+	int		j;
+	char	c;
+
+	j = 0;
+	c = ' ';
+	while (f[t] != '-' && f[t] != '\0')
+		t++;
+	k = ft_atoi(&f[t]);
+	return (k);
+}
+
+void	flag_space_neg_print_error(int b, int *sum)
+{
+	while (b - 1)
+	{
+		ft_putchar(' ');
+		(*sum)++;
+		b--;
+	}
+}
+

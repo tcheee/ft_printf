@@ -6,15 +6,15 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:07:08 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/14 19:10:27 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/17 17:00:03 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	ft_putnbr_basemaj(unsigned long long nb, int base)
+void	ft_putnbr_basemaj(long long nb, int base)
 {
-	if (nb < (unsigned long long)base)
+	if (nb < (long long)base)
 	{
 		if (nb < 10)
 			ft_putchar('0' + nb);

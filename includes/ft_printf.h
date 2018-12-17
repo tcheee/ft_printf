@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 11:07:24 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/14 19:54:00 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/17 17:14:29 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,24 @@ int		ft_printf(const char * format, ...);
 int		dispatcher(va_list ap, int i, const char *format);
 
 void	increment(const char *format, int *i);
-void	ft_putnbr_base(unsigned long long nb, int base);
-void	ft_putnbr_basemaj(unsigned long long nb, int base);
+void	increment_error(const char *format, int *i, int *sum, int *b);
+void	ft_putnbr_base(long long nb, int base);
+void	ft_putnbr_base_addr(unsigned long long nb, int base, int *ret);
+void	ft_putnbr_basemaj(long long nb, int base);
 void	ft_putnbr_double(double nb, int size);
+void	ft_putnbr_unsign(unsigned long long nb, int base);
 void	ft_nblen(long long nb, int base, int *sum);
 void	ft_nblen_double(long long nb, int *sum);
+void	ft_nblen_unsign(unsigned long long nb, int base, int *ret);
 void	ft_nputstr(const char *str, int size);
 void	flag_space(const char *f, int nb, int t, int *ret);
 void	flag_space_neg(const char *f, int nb, int t, int *ret);
+int		flag_space_neg_nb_error(const char *f, int t, int *ret);
+void	flag_space_neg_print_error(int b, int *sum);
 int		flag_plus_space(const char *f, int *nb, int t, int *ret);
 void	print_flag_plus_space(int b, char c);
 void	print_flag_plus_space1(int b, char c);
-int		flag_precision(const char *f, int nb, int t);
+int		flag_precision(const char *f, int t);
 int		flag_precision_nb(const char *f, int nb, int t, int *ret);
 void	flag_hashxmaj(const char *f, int t, int *ret);
 void	flag_hashx(const char *f, int t, int *ret);

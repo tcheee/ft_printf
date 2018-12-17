@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 12:07:39 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/13 12:05:41 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/17 18:23:23 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		dispatcher(va_list ap, int i, const char *f)
 	int t;
 
 	t = i;
+	if (check_error(f, i) == -1)
+		return (-1);
 	increment(f, &i);
 	if (f[i] == 'c')
 		return (ft_print_char(ap, f, t));
