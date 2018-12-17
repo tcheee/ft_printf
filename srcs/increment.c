@@ -14,9 +14,6 @@
 
 void	increment(const char *format, int *i)
 {
-	int j;
-
-	j = 0;
 	while (format[*i] != 'c' && format[*i] != 's' && format[*i] != 'p'
 			&& format[*i] != 'd' && format[*i] != 'i' && format[*i] != 'o'
 			&& format[*i] != 'u' && format[*i] != 'x' && format[*i] != 'X'

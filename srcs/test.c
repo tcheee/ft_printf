@@ -28,9 +28,9 @@ int		main()
 	n = 1844674407370955161;
 	str1 = "pour comprendre les strings";
 	nb = 4.1;
-	y = printf("1: test %wlld !!!\n", n);
+	y = printf("1: test %ddddddlddddddd !!!\n", n);
 	ft_putnbr(y);
 	ft_putchar('\n');
-	y1 = ft_printf("2: test %wwwwwwwwwwwwlld !!!\n", n);
+	y1 = ft_printf("2: test %dddddddlhd !!!\n", n);
 	ft_putnbr(y1);
 }

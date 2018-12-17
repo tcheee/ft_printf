@@ -10,7 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// gestion des cas lhd lld ld hd hhd grjngbrbhd
+
 int		check_error(const char *f, int i)
 {
-	
+	int	j;
+	int	b;
+
+	j = i;
+	if (f[j] == 'c' || f[j] == 's' || f[j] == 'p'
+			|| f[j] == 'd' || f[j] == 'i' || f[j] == 'o'
+			|| f[j] == 'u' || f[j] == 'x' || f[j] == 'X'
+			|| f[j] == 'f' || f[j] == '%')
+			b = 1;
+	else
+	{
+		b = -1;
+		while (f[j] != 'c' && f[j] != 's' && f[j] != 'p'
+				&& f[j] != 'd' && f[j] != 'i' && f[j] != 'o'
+				&& f[j] != 'u' && f[j] != 'x' && f[j] != 'X'
+				&& f[j] != 'f' && f[j] != '%' && f[j] != '\0')
+		{
+			if (f[j] == '.' || f[j] == '+' || f[j] == '-'|| f[j] == '#')
+				b = 1;
+			if (f[j] >= '0' && f[j] <= '9')
+				b = 1;
+			j++;
+		}
+	}
+	return (b);
 }

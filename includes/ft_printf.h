@@ -19,6 +19,7 @@
 int		ft_printf(const char * format, ...);
 int		dispatcher(va_list ap, int i, const char *format);
 
+int		check_error(const char *f, int i);
 void	increment(const char *format, int *i);
 void	increment_error(const char *format, int *i, int *sum, int *b);
 void	ft_putnbr_base(long long nb, int base);
