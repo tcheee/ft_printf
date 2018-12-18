@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 10:44:41 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/17 18:25:05 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/18 14:27:33 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,17 @@ int		main()
 	char	*str;
 	char	*str1;
 	double	nb;
-	unsigned long long n;
+	long long	n;
 	int		y;
 	int		y1;
 
 
-	//ft_putnbr(ft_atoi("10"));
 	str = "test";
-	n = 1844674407370955161;
+	n = 415416541;
 	str1 = "pour comprendre les strings";
 	nb = 4.1;
-	y = printf("1: test %ddddddlddddddd !!!\n", n);
-	ft_putnbr(y);
-	ft_putchar('\n');
-	y1 = ft_printf("2: test %dddddddlhd !!!\n", n);
-	ft_putnbr(y1);
+	y = printf("%+u", 4245415241);
+	printf("\nretour printf: %d\n", y);
+	y1 = ft_printf("%.2s is a string", "");
+	printf("\nnotre retour :%d\n", y1);
 }

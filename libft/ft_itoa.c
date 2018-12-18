@@ -3,58 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 17:24:23 by tcherret          #+#    #+#             */
-/*   Updated: 2018/11/13 13:09:15 by tcherret         ###   ########.fr       */
+/*   Created: 2018/11/12 13:59:12 by ayguillo          #+#    #+#             */
+/*   Updated: 2018/11/23 10:44:03 by ayguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		size_char(long nb)
+static int		ft_len_nbr(long n)
 {
-	int i;
+	int		len;
 
-	i = 0;
-	if (nb < 0)
-	{
-		i++;
-		nb = -nb;
-	}
-	if (nb == 0)
-		return (1);
-	while (nb > 0)
-	{
-		nb = nb / 10;
-		i++;
-	}
-	return (i);
-}
-
-char			*ft_itoa(int nb)
-{
-	char	*s;
-	int		i;
-	long	n;
-
-	n = nb;
-	i = size_char(n) - 1;
-	if (!(s = (char *)malloc(sizeof(*s) * (size_char(n) + 1))))
-		return (NULL);
-	s[size_char(n)] = '\0';
+	len = 0;
 	if (n < 0)
 	{
-		s[0] = '-';
-		n = -n;
+		n = n * -1;
+		len++;
 	}
-	if (n == 0)
-		s[0] = '0';
 	while (n > 0)
 	{
-		s[i] = '0' + n % 10;
 		n = n / 10;
-		i--;
+		len++;
 	}
-	return (s);
+	return (len);
+}
+
+char			*ft_itoa(int n)
+{
+	long	nbr;
+	char	*str;
+	int		len;
+
+	nbr = n;
+	len = ft_len_nbr(nbr);
+	if (!(str = (char*)malloc(sizeof(*str) * (len + 1))))
+		return (NULL);
+	str[len--] = '\0';
+	if (nbr == 0)
+		str[0] = '0';
+	if (nbr < 0)
+	{
+		str[0] = '-';
+		nbr = nbr * -1;
+	}
+	while (nbr > 0)
+	{
+		str[len] = '0' + (nbr % 10);
+		nbr = nbr / 10;
+		len--;
+	}
+	return (str);
 }

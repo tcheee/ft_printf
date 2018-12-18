@@ -3,36 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/09 13:06:26 by tcherret          #+#    #+#             */
-/*   Updated: 2018/11/14 14:33:19 by tcherret         ###   ########.fr       */
+/*   Created: 2018/11/07 14:18:34 by ayguillo          #+#    #+#             */
+/*   Updated: 2018/11/13 18:28:19 by ayguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int i;
-	int nb;
-	int less;
+	long	res;
+	int		i;
+	long	neg;
 
 	i = 0;
-	nb = 0;
-	less = 1;
+	res = 0;
+	neg = 1;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if (str[i] == 45 || str[i] == 43)
 	{
-		if (str[i] == '-')
-			less = -1;
+		if (str[i] == 45)
+			neg = -1;
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		nb = nb * 10 + (str[i] - '0');
+		res = res * 10 + ((str[i] - '0'));
 		i++;
 	}
-	return (less * nb);
+	return (res * neg);
 }

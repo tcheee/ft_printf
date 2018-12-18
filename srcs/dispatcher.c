@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 12:07:39 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/17 18:23:23 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/18 13:48:20 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		dispatcher(va_list ap, int i, const char *f)
 	else if (f[i] == 'p')
 		return (ft_print_hex(ap, f, t));
 	else if (f[i] == 'd' || f[i] == 'i')
-		return (ft_print_number(ap, f, i, t));
+		return (ft_print_number(ap, f, t));
 	else if (f[i] == 'o')
 		return (ft_print_octal(ap, f, i, t));
 	else if (f[i] == 'u')

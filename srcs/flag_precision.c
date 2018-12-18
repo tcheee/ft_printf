@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:51:56 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/17 11:51:51 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/18 13:47:27 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int		flag_precision(const char *f, int t)
 
 int		flag_precision_nb(const char *f, int nb, int t, int *ret)
 {
-	char	*flag;
 	int		size;
 
 	size = flag_precision(f, t);

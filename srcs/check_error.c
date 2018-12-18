@@ -6,11 +6,11 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 18:22:53 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/17 18:24:59 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/18 13:45:42 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// gestion des cas lhd lld ld hd hhd grjngbrbhd
+// gestion des cas lhd  hhd 
 
 int		check_error(const char *f, int i)
 {
@@ -21,8 +21,15 @@ int		check_error(const char *f, int i)
 	if (f[j] == 'c' || f[j] == 's' || f[j] == 'p'
 			|| f[j] == 'd' || f[j] == 'i' || f[j] == 'o'
 			|| f[j] == 'u' || f[j] == 'x' || f[j] == 'X'
-			|| f[j] == 'f' || f[j] == '%')
-			b = 1;
+			|| f[j] == 'f' || f[j] == '%' || f[j] == 'l' || f[j] == 'h')
+	{
+		b = 1;
+		while (f[j] == 'c' || f[j] == 's' || f[j] == 'p'
+				|| f[j] == 'd' || f[j] == 'i' || f[j] == 'o'
+				|| f[j] == 'u' || f[j] == 'x' || f[j] == 'X'
+				|| f[j] == 'f' || f[j] == '%' || f[j] == 'l' || f[j] == 'h')
+			j++;
+	}
 	else
 	{
 		b = -1;

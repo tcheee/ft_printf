@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 12:18:32 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/17 18:18:49 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/18 13:50:16 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	increment_error(const char *f, int *i, int *sum, int *b)
 		else if (f[j] == '-')
 		{
 			if (*b == -5)
-				if (flag_space_neg_nb_error(f, t, sum) != 0)
-					*b = -flag_space_neg_nb_error(f, t, sum);
+				if (flag_space_neg_nb_error(f, t) != 0)
+					*b = -flag_space_neg_nb_error(f, t);
 			(*i)++;
 		}
 		else if (f[j] == ' ')

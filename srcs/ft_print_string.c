@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:09:00 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/17 11:49:58 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/18 14:00:40 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_print_string(va_list ap, const char *f, int t)
 	else 
 		size = nb;
 	flag_space(f, nb, t, &nb);
-	ft_nputstr(str, size);
+	ft_putnstr(str, size);
 	flag_space_neg(f, nb, t, &nb);
 	return (nb);
 }

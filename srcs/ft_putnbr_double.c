@@ -6,61 +6,57 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:49:46 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/14 20:25:45 by ayguillo         ###   ########.fr       */
+/*   Updated: 2018/12/18 12:11:31 by ayguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../includes/ft_printf.h"
+#include <stdlib.h>
 
-int		to_round(int nb, int tmp)
+static char	*ft_dtoa(long double nb, int size)
 {
-	int ret;
-	
-	ret = nb;
-	if (tmp >= 5)
-		ret = ret + 1;
-	return (ret);
+	unsigned long long	len;
+	long long			tmp;
+	char				*str;
+	int					n;
+
+	n = 0;
+	len = size + 2;
+	if (!(str = (char*)malloc(sizeof(*str) * (len) + 1)))
+		return (NULL);
+	str[len] = '\0';
+	str[0] = '.';
+	while (++n <= (int)(len - 1))
+	{
+		tmp = (long long)nb;
+		nb -= (long double)tmp;
+		nb *= 10;
+		str[n] = '0' + ((int)nb % 10);
+	}
+	return (str);
 }
 
 void	ft_putnbr_double(double nb, int size)
-{	
-	int x;
-	int i;
-	float y;
-	float tmp;
-	unsigned long long	ret;
+{
+	char	*pint;
+	char	*test;
+	int		n;
+	int		tmp;
 
-	i = 0;
-	if (nb < 0)
+	n = 0;
+	pint = ft_itoa(nb);
+	test = ft_dtoa(nb, size);
+	pint = ft_strjoin_free(pint, test);
+	while (pint[n])
+		n++;
+	n--;
+	tmp = n;
+	if (pint[n] >= '5' && pint[n] <= '9')
 	{
-		ft_putchar('-');
-		nb = -nb;
+		while (pint[--n] == '9')
+			pint[n] = '0';
+		pint[n] += 1;
 	}
-	x = (unsigned long long)nb;
-	ft_putnbr_base(nb, 10);
-	ft_putchar('.');
-	y = (nb - x);
-	tmp = y;
-	tmp = tmp * 10;
-	while ((int)tmp == 0 && i < size)
-	{
-		ft_putnbr(0);
-		tmp = tmp * 10;
-		i++;
-	}
-	while (i < size)
-	{
-		if (((int)tmp%10) != 0)
-		{
-			ret = (unsigned long long)tmp % 10;
-			if (i == size - 1)
-				ret = to_round(ret, (int)(tmp * 10) % 10);
-			ft_putnbr_base(ret, 10);
-		}
-		else
-			ft_putnbr(0);
-		tmp = tmp * 10;
-		i++;
-	}
+	pint[tmp] = '\0';
+	ft_putnstr(pint, tmp);
 }

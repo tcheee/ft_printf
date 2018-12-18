@@ -3,40 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 18:31:55 by tcherret          #+#    #+#             */
-/*   Updated: 2018/11/14 13:21:13 by tcherret         ###   ########.fr       */
+/*   Created: 2018/11/07 16:52:33 by ayguillo          #+#    #+#             */
+/*   Updated: 2018/11/23 10:55:29 by ayguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void			*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t				i;
-	unsigned char		*ptrd;
-	unsigned char		*ptrs;
+	char	*dst2;
+	char	*src2;
+	size_t	n;
 
-	ptrd = (unsigned char *)dst;
-	ptrs = (unsigned char *)src;
-	if (ptrs < ptrd)
+	dst2 = (char*)dst;
+	src2 = (char*)src;
+	if (dst == src || len == 0)
+		return (dst);
+	if (dst2 < src2)
 	{
-		i = len - 1;
-		while (len--)
+		n = 0;
+		while (n < len)
 		{
-			ptrd[i] = ptrs[i];
-			i--;
+			dst2[n] = src2[n];
+			n++;
 		}
 	}
-	else if (ptrs > ptrd)
-	{
-		i = 0;
-		while (len--)
+	else
+		while (len > 0)
 		{
-			ptrd[i] = ptrs[i];
-			i++;
+			len--;
+			dst2[len] = src2[len];
 		}
-	}
 	return (dst);
 }

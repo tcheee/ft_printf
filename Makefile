@@ -6,7 +6,7 @@
 #    By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 16:47:38 by ayguillo          #+#    #+#              #
-#    Updated: 2018/12/14 18:47:30 by ayguillo         ###   ########.fr        #
+#    Updated: 2018/12/18 14:18:15 by tcherret         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,15 @@ TESTNAME = printtest
 
 LIBFT = libft
 
-INCLUDES = ./includes
-
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = flag_plus_space.c 	\
 	   flag_space.c			\
+	   flag_hash.c			\
 	   flag_space_neg.c		\
+	   flag_precision.c		\
 	   ft_printf.c			\
 	   ft_print_char.c 		\
 	   ft_print_float.c		\
@@ -41,9 +41,17 @@ SRCS = flag_plus_space.c 	\
 	   ft_putnbr_base.c		\
 	   ft_putnbr_basemaj.c	\
 	   ft_putnbr_double.c	\
+	   ft_putnstr.c			\
 	   dispatcher.c			\
 	   ft_nblen.c			\
+	   ft_nblen_double.c	\
 	   increment.c			\
+	   increment_error.c	\
+	   check_error.c		\
+	   check_flag_hl.c		\
+	   ft_nblen_unsign.c	\
+	   ft_putnbr_base_addr.c\
+	   ft_putnbr_unsign.c	\
 
 INCS = ft_printf.h
 
@@ -60,9 +68,10 @@ LIBRARIES = -lft
 all : $(NAME)
 
 $(NAME) : $(OBJECTS)
-	@ar rc $(NAME) $(OBJECTS)
-	@ranlib $(NAME)
 	@make -C $(LIBDIR)
+	mv libft/libft.a ./
+	@ar rc libft.a $(OBJECTS)
+	@mv libft.a $(NAME)
 	@echo "$(NAME) compiled ✔"
 
 objs/%.o : srcs/%.c
@@ -85,8 +94,7 @@ fclean : clean
 re : fclean all
 
 test : all
-	@$(CC) $(CFLAGS) -o $(TESTNAME) $(SRCSDIR)test.c -L./libft -lft \
-		-L./ -lftprintf
+	@$(CC) $(CFLAGS) -o $(TESTNAME) $(SRCSDIR)test.c -L./ -lftprintf
 	@echo "Test ready ✔"
 
 testclean :

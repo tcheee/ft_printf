@@ -6,13 +6,13 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 17:11:20 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/14 17:12:44 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/18 14:00:01 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	ft_nputstr(char const *str, int size)
+void	ft_putnstr(char const *str, int size)
 {
 	int i;
 
