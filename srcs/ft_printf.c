@@ -6,12 +6,11 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 10:48:20 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/18 14:24:28 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/18 15:09:24 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdio.h>
 
 int		ft_printf(const char *format, ...)
 {
@@ -35,19 +34,21 @@ int		ft_printf(const char *format, ...)
 				increment(format, &i);
 				sum += nb;
 				i++;
-				//printf("\n voila le i: %d \n", i);
 			}
 			else
 				increment_error(format, &i, &sum, &b);
 		}
-		ft_putchar(format[i]);
+		else
+		{
+			ft_putchar(format[i]);
+			sum++;
+			i++;
+		}
 		if (b > 0)
 		{
 			flag_space_neg_print_error(b, &sum);
 			b = -5;
 		}
-		sum++;
-		i++;
 	}
 	va_end(ap);
 	return (sum);

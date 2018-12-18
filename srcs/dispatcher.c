@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 12:07:39 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/18 13:48:20 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/18 14:50:04 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int		dispatcher(va_list ap, int i, const char *f)
 {
 	int t;
 
+	if (f[i] == '\0')
+		return (-1);
 	t = i;
 	if (check_error(f, i) == -1)
 		return (-1);
