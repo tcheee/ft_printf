@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:05:47 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/19 17:30:21 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/19 19:02:34 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int		ft_print_uhex(va_list ap, const char *f, int i, int t)
 	int				nb;
 	int				size;
 	int				b;
+	int				k;
 
 	nb = 0;
+	k = 0;
 	if (f[i - 1] == 'l' || (f[i - 1] == 'l' && f[i - 2] == 'l'))
 	{
 		var1 = va_arg(ap, unsigned long long);
@@ -40,14 +42,14 @@ int		ft_print_uhex(va_list ap, const char *f, int i, int t)
 		var = (short)var;
 	ft_nblen(var, 16, &nb);
 	size = nb;
+	if (get_precision2(f, t) < 0 && var == 0)
+		nb--;
 	b = flag_space_x(f, nb, t, &nb);
 	if (var != 0 && b != -1)
 		flag_hashx(f, t, &nb);
 	b = flag_precision_nb(f, size, t, &nb);
 	if (!((b == 0 || b == -5) && var == 0))
 		ft_putnbr_base(var, 16);
-	else
-		nb--;
 	flag_space_neg(f, nb, t, &nb);
 	return (nb);
 }

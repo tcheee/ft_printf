@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:56:48 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/19 17:40:22 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/19 18:23:13 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,13 @@ int		ft_print_octal(va_list ap, const char *f, int i, int t)
 		var = (short)var;
 	ft_nblen(var, 8, &nb);
 	size = nb;
+	b = get_precision(f, t, &nb);
 	flag_space_o(f, nb, t, &nb);
-	if (var != 0)
+	if (var != 0 || (var == 0 && (b == 0 || b == -5)))
 		flag_hasho(f, t, &nb);
-	b = flag_precision_nb(f, size, t, &nb);
+	flag_precision_nb(f, size, t, &nb);
 	if (!((b == 0 || b == -5) && var == 0))
 		ft_putnbr_base(var, 8);
-	else
-		nb--;
 	flag_space_neg(f, nb, t, &nb);
 	return (nb);
 }

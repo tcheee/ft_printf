@@ -6,7 +6,7 @@
 #    By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 16:47:38 by ayguillo          #+#    #+#              #
-#    Updated: 2018/12/18 14:18:15 by tcherret         ###   ########.fr        #
+#    Updated: 2018/12/19 18:05:54 by tcherret         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SRCS = flag_plus_space.c 	\
 	   ft_nblen_unsign.c	\
 	   ft_putnbr_base_addr.c\
 	   ft_putnbr_unsign.c	\
+	   get_precision.c		\
 
 INCS = ft_printf.h
 
