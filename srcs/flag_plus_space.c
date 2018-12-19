@@ -6,11 +6,28 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:22:43 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/17 14:05:20 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/18 18:19:04 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+int		flag_plus_space_percent(const char *f, int t)
+{
+	int		b;
+	int		z;
+
+	z = t;
+	b = 0;
+	while (f[z] != 'c' && f[z] != 's' && f[z] != 'p'
+			&& f[z] != 'd' && f[z] != 'i' && f[z] != 'o'
+			&& f[z] != 'u' && f[z] != 'x' && f[z] != 'X'
+			&& f[z] != 'f' && f[z] != '\0')
+		z++;
+	if (f[z] == '\0')
+		b = 0;
+	return (b);
+}
 
 int		flag_plus_space(const char *f, int *nb, int t, int *ret)
 {
@@ -58,9 +75,4 @@ void	print_flag_plus_space1(int b, char c)
 {
 	if (c == '0' && b == 1)
 		ft_putchar('+');
-	if (b == 2)
-	{
-		ft_putchar(' ');
-		b = 3;
-	}
 }

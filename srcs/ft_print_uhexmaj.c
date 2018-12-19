@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:06:22 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/18 15:42:00 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/18 18:11:35 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		ft_print_uhexmaj(va_list ap, const char *f, int i, int t)
 		ft_nblen(var1, 16, &nb);
 		size = nb;
 		flag_space(f, nb, t, &nb);
+		flag_hashxmaj(f, t, &nb);
 		flag_precision_nb(f, size, t, &nb);
 		ft_putnbr_basemaj(var1, 16);
 		flag_space_neg(f, nb, t, &nb);
