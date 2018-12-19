@@ -6,11 +6,9 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 18:22:53 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/18 17:58:33 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/19 14:28:48 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// gestion des cas lhd  hhd 
 
 int		check_error(const char *f, int i)
 {

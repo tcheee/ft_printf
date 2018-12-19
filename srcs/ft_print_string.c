@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:09:00 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/18 17:25:58 by ayguillo         ###   ########.fr       */
+/*   Updated: 2018/12/19 16:34:34 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ int		ft_print_string(va_list ap, const char *f, int t)
 	else
 		nb = 0;
 	size = flag_precision(f, t);
-	if (size > 0 && nb != 0)
+	if (size > nb)
+		size = nb;
+	else if (size > 0 && nb != 0)
 		nb = size;
 	else if (size == -5)
 	{

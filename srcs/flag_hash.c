@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 19:27:24 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/14 19:47:02 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/19 17:39:02 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	flag_hashx(const char *f, int t, int *ret)
 	}
 }
 
-void	flag_hasho(const char *f, int t, int *ret)
+int		flag_hasho(const char *f, int t, int *ret)
 {
 	int b;
 
@@ -64,6 +64,7 @@ void	flag_hasho(const char *f, int t, int *ret)
 		ft_putstr("0");
 		(*ret)++;
 	}
+	return (b);
 }
 
 void	flag_hashf(const char *f, int t, int *ret)
