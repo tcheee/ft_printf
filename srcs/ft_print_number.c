@@ -6,13 +6,20 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:15:37 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 11:12:46 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/20 19:09:00 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_get_lld_max(int nb, long long var1)
+void		precis0_varneg(int *var, int *nb)
+{
+		ft_putchar('-');
+		(*nb)++;
+		*var = -(*var);
+}
+
+/*int		ft_get_lld_max(int nb, long long var1)
 {
 	unsigned long long n;
 
@@ -23,47 +30,62 @@ int		ft_get_lld_max(int nb, long long var1)
 	ft_nblen_unsign(n, 10, &nb);
 	//  a faire: gerer les espaces et les precision & co
 	return (nb);
-}
+}*/
 
-int		ft_print_number(va_list ap, const char *f, int t)
+/*int		print_long(va_list ap, const char *f, int nb, t_flag flag)
+{
+	long long	var1;
+	int			size;
+
+	var1 = va_arg(ap, long long);
+	if (var1 < 0)
+		return (ft_get_lld_max(nb, var1));
+	ft_nblen(var1, 10, &nb);
+	size = nb;
+	print_flag_plus_space1(flag.sign, flag.zero, &var1);
+	if (flag.sign != 3 || flag.precis )
+		flag_space(flag.space, nb, flag.zero, &nb);
+	print_flag_plus_space(flag.sign, flag.zero, var1);
+	if (flag.precis >= 0 && var1 < 0)
+		precis0_varneg(&var1), &nb);
+	flag_precision_nb(flag.precis, size, &nb);
+	if (!((flag.precis == 0 || flag.precis == -5) && var1 == 0))
+		ft_putnbr_base(var1, 10);
+	else
+		nb--;
+	if (flag.sign == 3)
+		flag_space_neg(flag.space, nb, &nb);
+	return (nb);
+}*/
+
+int		ft_print_number(va_list ap, const char *f, int t, t_flag flag)
 {
 	int	var;
-	long long var1;
 	int	nb;
 	int size;
-	int	b;
 
 	nb = 0;
-	b = check_flag_hl(f, t);
-	if (b == 4 || b == 3)
-	{
-		var1 = va_arg(ap, long long);
-		if (var1 < 0)
-			return (ft_get_lld_max(nb, var1));
-		ft_nblen(var1, 10, &nb);
-		size = nb;
-		flag_space(f, nb, t, &nb);
-		flag_precision_nb(f, size, t, &nb);
-		ft_putnbr_base(var1, 10);
-		flag_space_neg(f, nb, t, &nb);
-		return (nb);
-	}
+	//if (flag.hl == 4 || flag.hl == 3)
+		//return (print_long(ap, f, nb, flag));
 	var = va_arg(ap, int);
-	if (b == 2)
+	if (flag.hl == 2)
 		var = (char)var;
-	else if (b == 1)
+	else if (flag.hl == 1)
 		var = (short)var;
 	ft_nblen(var, 10, &nb);
 	size = nb;
-	b = flag_plus_space(f, &nb, t, var);
-	print_flag_plus_space1(f, t, b, &var);
-	flag_space(f, nb, t, &nb);
-	print_flag_plus_space(f, t, b, var);
-	b = flag_precision_nb(f, size, t, &nb);
-	if (!((b == 0 || b == -5) && var == 0))
+	print_flag_plus_space1(flag.sign, flag.zero, &var, &nb);
+	if (flag.sign != 3)
+		flag_space(flag.space, flag.precis, flag.zero, &nb);
+	print_flag_plus_space(flag.sign, flag.zero, var, &nb);
+	if (flag.precis >= 0 && var < 0)
+		precis0_varneg(&var, &nb);
+	flag_precision_nb(flag.precis, size, &nb);
+	if (!((flag.precis == 0 || flag.precis == -5) && var == 0))
 		ft_putnbr_base(var, 10);
 	else
 		nb--;
-	flag_space_neg(f, nb, t, &nb);
+	if (flag.sign == 3)
+		flag_space_neg(flag.space, nb, &nb);
 	return (nb);
 }

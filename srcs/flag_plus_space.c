@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:22:43 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 11:51:17 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/20 18:54:39 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,54 +54,31 @@ int		flag_plus_space(const char *f, int t)
 	return (b);
 }
 
-void	print_flag_plus_space(const char *f, int t, int b, int var)
+void	print_flag_plus_space(int sign, int zero, int var, int *ret)
 {
-	int c;
-
-	c= ' ';
-	while (f[t] != '0' && f[t] != '1' && f[t] != '2'
-			&& f[t] != '3' && f[t] != '4' && f[t] != '5'
-			&& f[t] != '6' && f[t] != '7' && f[t] != '8'
-			&& f[t] != '9' && f[t] != '\0') // nein !
+	if (zero == 0 && sign == 1)
 	{
-		if (f[t] == '-')
-			break ;
-		if (f[t] == '.')
-			break ;
-		t++;
-	}
-	if (f[t] == '0')
-		c = '0';
-	if (c == ' ' && b == 1 && var >= 0)
 		ft_putchar('+');
-	else if (c == ' ' && b == 2 && var >= 0)
+		(*ret)++;
+	}
+	else if (zero == 0 && sign == 2 && var >= 0)
+	{
 		ft_putchar(' ');
+		(*ret)++;
+	}
 }
 
-void	print_flag_plus_space1(const char *f, int t, int b, int *var)
+void	print_flag_plus_space1(int sign, int zero, int *var, int *ret)
 {
-	int c;
-
-	c = ' ';
-
-	while (f[t] != '0' && f[t] != '1' && f[t] != '2'
-			&& f[t] != '3' && f[t] != '4' && f[t] != '5'
-			&& f[t] != '6' && f[t] != '7' && f[t] != '8'
-			&& f[t] != '9' && f[t] != '\0') // nein !
+	if (zero == 1 && sign == 1 && *var > 0)
 	{
-		if (f[t] == '-')
-			break ;
-		if (f[t] == '.')
-			break ;
-		t++;
-	}
-	if (f[t] == '0')
-		c = '0';
-	if (c == '0' && b == 1 && *var > 0)
 		ft_putchar('+');
-	if (c == '0' && *var < 0)
+		(*ret)++;
+	}
+	if (zero == 1 && sign == 1 && *var < 0)
 	{
 		ft_putchar('-');
+		(*ret)++;
 		*var = -(*var);
 	}
 }

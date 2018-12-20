@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:54:04 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 11:41:45 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/20 19:04:35 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,32 +45,25 @@ void	flag_space_percent(const char *f, int nb, int t, int *ret)
 		}
 }
 
-void	flag_space_o(const char *f, int nb, int t, int *ret)
+void	flag_space_o(t_flag flag, int *ret)
 {
-	int		k;
 	int		j;
 	char	c;
+	int		size;
 
+	size = *ret;
 	j = 0;
 	c = ' ';
-	while (f[t] != '0' && f[t] != '1' && f[t] != '2'
-			&& f[t] != '3' && f[t] != '4' && f[t] != '5'
-			&& f[t] != '6' && f[t] != '7' && f[t] != '8'
-			&& f[t] != '9' && f[t] != '\0') // nein !
-	{
-		if (f[t] == '#')
-			nb++;
-		if (f[t] == '-')
-			break ;
-		if (f[t] == '.')
-			break ;
-		t++;
-	}
-	if (f[t] == '0')
+	if (flag.hash == 1)
+		(*ret)++;
+	if (flag.zero == 1)
 		c = '0';
-	k = ft_atoi(&f[t]);
-	if (k > 0)
-		while (j < k - nb)
+	if (flag.precis <= size)
+		flag.precis = 0;
+	else
+		flag.precis = flag.precis - size;
+	if (flag.space > 0)
+		while (j < flag.space - size - flag.precis)
 		{
 			ft_putchar(c);
 			j++;
@@ -125,35 +118,23 @@ int		flag_space_x(const char *f, int nb, int t, int *ret)
 	return (b);
 }
 
-void	flag_space(const char *f, int nb, int t, int *ret)
+void	flag_space(int space, int precis, int zero, int *ret)
 {
-	int		k;
 	int		j;
 	char	c;
+	int		size;
 
+	size = *ret;
 	j = 0;
 	c = ' ';
-	while (f[t] != '0' && f[t] != '1' && f[t] != '2'
-			&& f[t] != '3' && f[t] != '4' && f[t] != '5'
-			&& f[t] != '6' && f[t] != '7' && f[t] != '8'
-			&& f[t] != '9' && f[t] != '\0') // nein !
-	{
-		if (f[t] == '-')
-			break ;
-		if (f[t] == '.')
-			break ;
-		t++;
-	}
-	if (f[t] == '0')
-	{
+	if (zero == 1)
 		c = '0';
-		t++;
-	}
-	while (f[t] == '+' || f[t] == ' ')
-		t++;
-	k = ft_atoi(&f[t]);
-	if (k > 0)
-		while (j < k - nb)
+	if (precis <= size)
+		precis = 0;
+	else
+		precis = precis - size;
+	if (space > 0)
+		while (j < space - size - precis)
 		{
 			ft_putchar(c);
 			j++;

@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 11:47:04 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/18 13:36:14 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/20 15:28:30 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int		check_flag_hl(const char *f, int t)
 			h = 3;
 		else if (f[t] == 'h')
 			gain_space(&h, &k);
+		else if (f[t] == 'L')
+			h = 5;
 		if (f[t] == 'h' && f[t - 1] != 'h')
 			k1++;
 		t++;

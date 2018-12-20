@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:51:56 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/19 17:56:06 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/20 16:08:34 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,12 @@ int		flag_precision(const char *f, int t)
 	return (size);
 }
 
-int		flag_precision_nb(const char *f, int nb, int t, int *ret)
+void	flag_precision_nb(int precis, int nb, int *ret)
 {
-	int		size;
-
-	size = flag_precision(f, t);
-	while (size > nb)
+	while (precis > nb)
 	{
-		size--;
+		precis--;
 		ft_putchar('0');
 		(*ret)++;
 	}
-	return (flag_precision(f, t));
 }

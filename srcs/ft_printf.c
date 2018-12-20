@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 10:48:20 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/18 15:09:24 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/20 16:22:27 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int		ft_printf(const char *format, ...)
 				sum += nb;
 				i++;
 			}
-			else
-				increment_error(format, &i, &sum, &b);
+			//else
+				//increment_error(format, &i, &sum, &b);
 		}
 		else
 		{
