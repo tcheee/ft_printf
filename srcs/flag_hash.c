@@ -6,11 +6,28 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 19:27:24 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/19 17:39:02 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/20 11:52:12 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+int		get_hash(const char *f, int t)
+{
+	int b;
+
+	b = 0;
+	while (f[t] != 'c' && f[t] != 's' && f[t] != 'p'
+			&& f[t] != 'd' && f[t] != 'i' && f[t] != 'o'
+			&& f[t] != 'u' && f[t] != 'x' && f[t] != 'X'
+			&& f[t] != 'f' && f[t] != '%' && f[t] != '\0')
+	{
+		if (f[t] == '#')
+			b = 1;
+		t++;
+	}
+	return (b);
+}
 
 void	flag_hashxmaj(const char *f, int t, int *ret)
 {

@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:22:43 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/19 16:59:02 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/20 11:51:17 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,44 +29,28 @@ int		flag_plus_space_percent(const char *f, int t)
 	return (b);
 }
 
-int		flag_plus_space(const char *f, int *nb, int t, int var)
+int		flag_plus_space(const char *f, int t)
 {
 	int		b;
 	int		z;
-	int		u;
 
 	z = t;
 	b = 0;
-	u = 0;
 	while (f[z] != 'c' && f[z] != 's' && f[z] != 'p'
 			&& f[z] != 'd' && f[z] != 'i' && f[z] != 'o'
 			&& f[z] != 'u' && f[z] != 'x' && f[z] != 'X'
 			&& f[z] != 'f' && f[z] != '%' && f[z] != '\0')
 	{
-		if (f[z] == '+' && var >= 0)
-		{
-			if (b == 2)
-				(*nb)--;
+		if (f[z] == '+' && b != 3)
 			b = 1;
-			if (u == 0)
-			{
-				(*nb)++;
-				u = 1;
-			}
-		}
+		if (f[z] == '-')
+			b = 3;
 		if (f[z] == ' ' && b == 0)
-		{
 			b = 2;
-			if (var >= 0)
-				(*nb)++;
-		}
 		z++;
 	}
 	if (f[z] == '\0')
-	{
 		b = 0;
-		(*nb)--;
-	}
 	return (b);
 }
 

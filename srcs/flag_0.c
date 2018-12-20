@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent.c                                 :+:      :+:    :+:   */
+/*   flag_0.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/12 10:35:39 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 11:21:13 by tcherret         ###   ########.fr       */
+/*   Created: 2018/12/20 11:37:21 by tcherret          #+#    #+#             */
+/*   Updated: 2018/12/20 11:45:06 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_print_percent(const char *f, int t)
+int		flag_0(const char *f, int t)
 {
-	int nb;
+	int b;
 
-	nb = 1;
-	flag_space_percent(f, nb, t, &nb);
-	ft_putchar('%');
-	flag_space_neg(f, nb, t, &nb);
-	return (nb);
+	b = 0;
+	while (f[t] != '0' && f[t] != '1' && f[t] != '2'
+			&& f[t] != '3' && f[t] != '4' && f[t] != '5'
+			&& f[t] != '6' && f[t] != '7' && f[t] != '8'
+			&& f[t] != '9' && f[t] != '\0' && f[t] != '.')
+		t++;
+	if (f[t] == '0')
+		b = 1;
+	return (b);
 }

@@ -6,13 +6,13 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:06:22 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/19 18:30:34 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/20 11:56:24 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_print_uhexmaj(va_list ap, const char *f, int i, int t)
+int		ft_print_uhexmaj(va_list ap, const char *f, int t)
 {
 	unsigned int		var;
 	unsigned long long	var1;

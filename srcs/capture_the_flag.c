@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent.c                                 :+:      :+:    :+:   */
+/*   capture_the_flag.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/12 10:35:39 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 11:21:13 by tcherret         ###   ########.fr       */
+/*   Created: 2018/12/20 11:27:07 by tcherret          #+#    #+#             */
+/*   Updated: 2018/12/20 11:52:43 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_print_percent(const char *f, int t)
+void	capture_the_flag(const char *f, int t, t_flag *flag)
 {
-	int nb;
-
-	nb = 1;
-	flag_space_percent(f, nb, t, &nb);
-	ft_putchar('%');
-	flag_space_neg(f, nb, t, &nb);
-	return (nb);
+	(*flag).hl = check_flag_hl(f, t);
+	(*flag).sign = flag_plus_space(f, t);
+	(*flag).precis = flag_precision(f, t);
+	(*flag).zero = flag_0(f, t);
+	(*flag).space = get_space_number(f, t);
+	(*flag).hash = get_hash(f, t);
 }

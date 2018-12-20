@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent.c                                 :+:      :+:    :+:   */
+/*   get_space_number.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/12 10:35:39 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 11:21:13 by tcherret         ###   ########.fr       */
+/*   Created: 2018/12/20 11:41:56 by tcherret          #+#    #+#             */
+/*   Updated: 2018/12/20 11:45:51 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_print_percent(const char *f, int t)
+int		get_space_number(const char *f, int t)
 {
-	int nb;
+	int		k;
 
-	nb = 1;
-	flag_space_percent(f, nb, t, &nb);
-	ft_putchar('%');
-	flag_space_neg(f, nb, t, &nb);
-	return (nb);
+	while (f[t] != '0' && f[t] != '1' && f[t] != '2'
+			&& f[t] != '3' && f[t] != '4' && f[t] != '5'
+			&& f[t] != '6' && f[t] != '7' && f[t] != '8'
+			&& f[t] != '9' && f[t] != '\0' && f[t] != '.')
+		t++;
+	if (f[t] == '0')
+		t++;
+	while (f[t] == '+' || f[t] == ' ')
+		t++;
+	k = ft_atoi(&f[t]);
+	return (k);
 }

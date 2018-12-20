@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 10:44:41 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/19 18:59:05 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/20 11:50:40 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		main()
 	printf("\nretour printf: %d\n", y);
 	y1 = ft_printf("% +d", -42);
 	printf("\nnotre retour: %d\n", y1);*/
-	y = printf("@moulitest: %5.x %5.0x test", 0, 0);
+	y = printf("%#######x", 42);
 	printf("\nretour printf: %d\n", y);
 	y1 = ft_printf("@moulitest: %5.x %5.0x test", 0, 0);
 ;	printf("\nnotre retour: %d\n", y1);

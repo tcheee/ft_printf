@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:15:37 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/19 18:23:20 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/20 11:12:46 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int		ft_get_lld_max(int nb, long long var1)
 	nb++;
 	ft_putnbr_unsign(n, 10);
 	ft_nblen_unsign(n, 10, &nb);
-
 	//  a faire: gerer les espaces et les precision & co
 	return (nb);
 }
