@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 11:07:24 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 15:43:51 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 20:35:07 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		check_flag_hl(const char *f, int t);
 int		flag_0(const char *f, int t);
 int		get_space_number(const char *f, int t);
 int		get_hash(const char *f, int t);
-void	flag_space(int space, int nb, int zero, int *ret);
+void	flag_space(t_flag flag, int *ret);
 void	flag_space_o(t_flag flag, int *ret);
 void	flag_space_percent(const char *f, int nb, int t, int *ret);
 void	flag_space_neg(int space, int nb, int *ret);
@@ -51,17 +51,17 @@ void	flag_space_neg_print_error(int b, int *sum);
 int		flag_plus_space(const char *f, int t);
 int		flag_plus_space_percent(const char *f, int t);
 void	print_flag_plus_space(int hl, int zero, int var, int *ret);
-void	print_flag_plus_space1(int hl, int zero, int *var, int *ret);
+void	print_flag_plus_space1(t_flag flag, int *var, int *ret);
 void	print_flag_plus_space_uns(int sign, int zero, unsigned long long *ret);
 void	print_flag_plus_space1_uns(int sign, int zero, unsigned long long *var,
 		unsigned long long *ret);
 int		get_precision(const char *f, int t, int *ret);
 int		get_precision2(const char *f, int t);
 int		flag_precision(const char *f, int t);
-void	flag_precision_nb(int precis, int size, int *ret);
-void	flag_hashxmaj(t_flag flag, int *ret);
-void	flag_hashx(t_flag flag, int *ret);
-void	flag_hasho(t_flag flag, int *ret);
+void	flag_precision_nb(t_flag flag, int size, int *ret);
+void	flag_hashxmaj(t_flag flag);
+void	flag_hashx(t_flag flag);
+void	flag_hasho(t_flag flag);
 void	flag_hashf(t_flag flag, int *ret);
 
 int		ft_print_char(va_list ap, t_flag flag);

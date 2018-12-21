@@ -6,11 +6,14 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:05:47 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 15:27:09 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 20:35:26 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+// pas oublier de recopier 	if (!(var == 0 && flag.precis == -5) && !(var == 0 && flag.precis == 0)) dans les print long de chaque fonction
+
 
 int		print_long_uhex(va_list ap, int nb, t_flag flag)
 {
@@ -18,13 +21,18 @@ int		print_long_uhex(va_list ap, int nb, t_flag flag)
 	unsigned long long var1;
 
 	var1 = va_arg(ap, unsigned long long);
-	ft_nblen(var1, 16, &nb);
+	if (!(var1 == 0 && flag.precis == -5) && !(var1 == 0 && flag.precis == 0))
+		ft_nblen(var1, 16, &nb);
 	size = nb;
+	if (flag.hash == 1 && var1 != 0)
+		nb = nb + 2;
+	if (flag.hash == 1 && flag.zero == 1)
+		flag_hashx(flag);
 	if (flag.sign != 3)
-		flag_space(flag.space, nb, flag.zero, &nb);
-	if (var1 != 0)
-		flag_hashx(flag, &nb);
-	flag_precision_nb(flag.precis, size, &nb);
+		flag_space(flag, &nb);
+	if (var1 != 0 && flag.zero == 0)
+		flag_hashx(flag);
+	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var1 == 0))
 		ft_putnbr_base(var1, 16);
 	if (flag.sign == 3)
@@ -46,13 +54,18 @@ int		ft_print_uhex(va_list ap, t_flag flag)
 		var = (char)var;
 	else if (flag.hl == 1)
 		var = (short)var;
-	ft_nblen(var, 16, &nb);
+	if (!(var == 0 && flag.precis == -5) && !(var == 0 && flag.precis == 0))
+		ft_nblen(var, 16, &nb);
 	size = nb;
+	if (flag.hash == 1 && var != 0)
+		nb = nb + 2;
+	if (flag.hash == 1 && flag.zero == 1)
+		flag_hashx(flag);
 	if (flag.sign != 3)
-		flag_space(flag.space, nb, flag.zero, &nb);
-	if (var != 0)
-		flag_hashx(flag, &nb);
-	flag_precision_nb(flag.precis, size, &nb);
+		flag_space(flag, &nb);
+	if (var != 0 && flag.zero == 0)
+		flag_hashx(flag);
+	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var == 0))
 		ft_putnbr_base(var, 16);
 	if (flag.sign == 3)

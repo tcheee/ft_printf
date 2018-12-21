@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:23:41 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 13:33:37 by ayguillo         ###   ########.fr       */
+/*   Updated: 2018/12/21 20:11:21 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_print_float(va_list ap, const char *f, int t, t_flag flag)
 	{
 		tmp = 0;
 		ft_nblen((long long)var, 10, &tmp);
-		flag_space(flag.space, tmp, flag.zero, &nb);
+		flag_space(flag, &nb);
 		nb = nb - 7;
 		ft_putnbr((int)var);
 	}
@@ -44,7 +44,7 @@ int		ft_print_float(va_list ap, const char *f, int t, t_flag flag)
 	{
 		tmp = flag.precis + 1;
 		ft_nblen((long long)var, 10, &tmp);
-		flag_space(flag.space, tmp, flag.zero, &tmp);
+		flag_space(flag, &tmp);
 		ft_putnbr_double(var, flag.precis);
 		nb = tmp++;
 	}

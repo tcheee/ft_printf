@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 12:18:32 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 14:10:27 by ayguillo         ###   ########.fr       */
+/*   Updated: 2018/12/21 20:18:08 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	increment_error(const char *f, int *i, int *sum, int *b)
 			(*i)++;
 		j++;
 	}
-	if (ft_atoi(&f[t]) > 0)
-		flag_space(0, 0, t, sum);
+	*sum = *sum + 1; //pour compiler
+	//if (ft_atoi(&f[t]) > 0)
+		//flag_space(0, 0, t, sum);
 }

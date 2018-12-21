@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:54:04 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 15:05:26 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 20:51:27 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void	flag_space_percent(const char *f, int nb, int t, int *ret)
 	while (f[t] != '0' && f[t] != '1' && f[t] != '2'
 			&& f[t] != '3' && f[t] != '4' && f[t] != '5'
 			&& f[t] != '6' && f[t] != '7' && f[t] != '8'
-			&& f[t] != '9' && f[t] != '\0') // nein !
+			&& f[t] != '9' && f[t] != 'c' && f[t] != 's' && f[t] != 'p'
+			&& f[t] != 'd' && f[t] != 'i' && f[t] != 'o'
+			&& f[t] != 'u' && f[t] != 'x' && f[t] != 'X'
+			&& f[t] != 'f' && f[t] != '%' && f[t] != '\0') // nein !
 	{
 		if (f[t] == '-')
 			break ;
@@ -54,8 +57,6 @@ void	flag_space_o(t_flag flag, int *ret)
 	size = *ret;
 	j = 0;
 	c = ' ';
-	if (flag.hash == 1)
-		(*ret)++;
 	if (flag.zero == 1)
 		c = '0';
 	if (flag.precis <= size)
@@ -71,7 +72,7 @@ void	flag_space_o(t_flag flag, int *ret)
 		}
 }
 
-void	flag_space(int space, int precis, int zero, int *ret)
+void	flag_space(t_flag flag, int *ret)
 {
 	int		j;
 	char	c;
@@ -80,14 +81,16 @@ void	flag_space(int space, int precis, int zero, int *ret)
 	size = *ret;
 	j = 0;
 	c = ' ';
-	if (zero == 1 && precis < 0 && precis != -5)
+	if (flag.zero == 1 && size >= flag.precis)
 		c = '0';
-	if (precis <= size)
-		precis = 0;
+	if (flag.precis <= size)
+		flag.precis = 0;
 	else
-		precis = precis - size;
-	if (space > 0)
-		while (j < space - size - precis)
+		flag.precis = flag.precis - size;
+	if (flag.zero == 0 && (flag.sign != 0))
+		size++;
+	if (flag.space > 0)
+		while (j < flag.space - size - flag.precis)
 		{
 			ft_putchar(c);
 			j++;

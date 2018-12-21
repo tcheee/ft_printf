@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:22:43 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 15:07:09 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 20:32:37 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ int		flag_plus_space(const char *f, int t)
 			&& f[z] != 'u' && f[z] != 'x' && f[z] != 'X'
 			&& f[z] != 'f' && f[z] != '%' && f[z] != '\0')
 	{
-		if (f[z] == '+' && b != 3)
+		if (f[z] == '+' && b == 3)
+			b = 4;
+		else if (f[z] == '+' && b != 3)
 			b = 1;
 		if (f[z] == '-')
 			b = 3;
@@ -56,7 +58,7 @@ int		flag_plus_space(const char *f, int t)
 
 void	print_flag_plus_space(int sign, int zero, int var, int *ret)
 {
-	if (zero == 0 && sign == 1 && var >= 0)
+	if (zero == 0 && (sign == 1 || sign == 4) && var >= 0)
 	{
 		ft_putchar('+');
 		(*ret)++;
@@ -68,14 +70,14 @@ void	print_flag_plus_space(int sign, int zero, int var, int *ret)
 	}
 }
 
-void	print_flag_plus_space1(int sign, int zero, int *var, int *ret)
+void	print_flag_plus_space1(t_flag flag, int *var, int *ret)
 {
-	if (zero == 1 && sign == 1 && *var >= 0)
+	if (flag.zero == 1 && (flag.sign == 1 || flag.sign == 4) && *var >= 0)
 	{
 		ft_putchar('+');
 		(*ret)++;
 	}
-	if (zero == 1 && *var < 0)
+	if (flag.zero == 1 && *var < 0)
 	{
 		ft_putchar('-');
 		*var = -(*var);

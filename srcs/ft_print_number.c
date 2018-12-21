@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:15:37 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 15:45:06 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 20:36:12 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void		precis0_varneg(long long *var, int *nb)
 {
-		ft_putchar('-');
-		(*nb)++;
-		*var = -(*var);
+	ft_putchar('-');
+	(*nb)++;
+	*var = -(*var);
 }
 
 int		ft_get_lld_min(int nb, long long var1)
@@ -44,11 +44,11 @@ static int		print_long(va_list ap, int nb, t_flag flag)
 	print_flag_plus_space1_uns(flag.sign, flag.zero,
 			(unsigned long long*)&var1, (unsigned long long*)&nb);
 	if (flag.sign != 3 || flag.precis )
-		flag_space(flag.space, nb, flag.zero, &nb);
+		flag_space(flag, &nb);
 	print_flag_plus_space_uns(flag.sign, flag.zero, (unsigned long long*)&var1);
 	if (flag.precis >= 0 && var1 < 0)
 		precis0_varneg((long long *)&var1, &nb);
-	flag_precision_nb(flag.precis, size, &nb);
+	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var1 == 0))
 		ft_putnbr_base(var1, 10);
 	else
@@ -72,20 +72,19 @@ int		ft_print_number(va_list ap, t_flag flag)
 		var = (char)var;
 	else if (flag.hl == 1)
 		var = (short)var;
-	ft_nblen(var, 10, &nb);
+	if (!(var == 0 && flag.precis == -5) && !(var == 0 && flag.precis == 0))
+		ft_nblen(var, 10, &nb);
 	size = nb;
-	print_flag_plus_space1(flag.sign, flag.zero, &var, &nb);
-	if (flag.sign != 3)
-		flag_space(flag.space, flag.precis, flag.zero, &nb);
+	print_flag_plus_space1(flag, &var, &nb);
+	if (flag.sign != 3 && flag.sign != 4)
+		flag_space(flag, &nb);
 	print_flag_plus_space(flag.sign, flag.zero, var, &nb);
 	if (flag.precis >= 0 && var < 0)
 		precis0_varneg((long long *)&var, &nb);
-	flag_precision_nb(flag.precis, size, &nb);
+	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var == 0))
 		ft_putnbr_base(var, 10);
-	else
-		nb--;
-	if (flag.sign == 3)
+	if (flag.sign == 3 || flag.sign == 4) // recopier le cas flag.sign == 4 dans les autres.
 		flag_space_neg(flag.space, nb, &nb);
 	return (nb);
 }

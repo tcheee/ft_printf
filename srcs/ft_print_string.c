@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:09:00 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 14:28:55 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 20:12:10 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		ft_print_string(va_list ap, t_flag flag)
 	else 
 		flag.precis = nb;
 	if (flag.sign != 3)
-		flag_space(flag.space, nb, flag.zero, &nb);
+		flag_space(flag, &nb);
 	str != NULL ? ft_putnstr(str, flag.precis) : ft_putstr("(null)");
 	if (str == NULL)
 		nb = 6;
