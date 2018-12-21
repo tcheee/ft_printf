@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:56:48 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 20:41:35 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 11:56:47 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ int		ft_print_octal(va_list ap, const char *f, int t, t_flag flag)
 	nb = 0;
 	if (flag.hl == 4 || flag.hl == 3)
 		return (print_long_octal(ap, f, nb, flag));
-	else 
-		var = va_arg(ap, unsigned int);
+	var = va_arg(ap, unsigned int);
 	if (flag.hl == 2)
 		var = (char)var;
 	else if (flag.hl == 1)

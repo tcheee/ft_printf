@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:15:37 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 19:09:00 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 11:35:26 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		precis0_varneg(int *var, int *nb)
 		*var = -(*var);
 }
 
-/*int		ft_get_lld_max(int nb, long long var1)
+/*int		ft_get_lld_min(int nb, long long var1)
 {
 	unsigned long long n;
 
@@ -39,7 +39,7 @@ void		precis0_varneg(int *var, int *nb)
 
 	var1 = va_arg(ap, long long);
 	if (var1 < 0)
-		return (ft_get_lld_max(nb, var1));
+		return (ft_get_lld_min(nb, var1));
 	ft_nblen(var1, 10, &nb);
 	size = nb;
 	print_flag_plus_space1(flag.sign, flag.zero, &var1);

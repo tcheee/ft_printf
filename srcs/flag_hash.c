@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 19:27:24 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 19:05:59 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 11:51:24 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,36 +29,18 @@ int		get_hash(const char *f, int t)
 	return (b);
 }
 
-void	flag_hashxmaj(const char *f, int t, int *ret)
+void	flag_hashxmaj(t_flag flag, int *ret)
 {
-	int b;
-
-	b = 0;
-	while (f[t] != '\0')
-	{
-		if (f[t] == '#')
-			b = 1;
-		t++;
-	}
-	if (b == 1)
+	if (flag.hash == 1)
 	{
 		ft_putstr("0X");
 		*ret = *ret + 2;
 	}
 }
 
-void	flag_hashx(const char *f, int t, int *ret)
+void	flag_hashx(t_flag flag, int *ret)
 {
-	int b;
-
-	b = 0;
-	while (f[t] != '\0')
-	{
-		if (f[t] == '#')
-			b = 1;
-		t++;
-	}
-	if (b == 1)
+	if (flag.hash == 1)
 	{
 		ft_putstr("0x");
 		*ret = *ret + 2;
