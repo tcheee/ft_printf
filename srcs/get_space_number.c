@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 11:41:56 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 11:45:51 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/20 16:10:08 by ayguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		get_space_number(const char *f, int t)
 	while (f[t] == '+' || f[t] == ' ')
 		t++;
 	k = ft_atoi(&f[t]);
+	//printf("nb 0 === %i\n", k);
 	return (k);
 }

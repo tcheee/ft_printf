@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:15:37 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 11:35:26 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 13:36:45 by ayguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		precis0_varneg(int *var, int *nb)
 	return (nb);
 }*/
 
-int		ft_print_number(va_list ap, const char *f, int t, t_flag flag)
+int		ft_print_number(va_list ap, t_flag flag)
 {
 	int	var;
 	int	nb;

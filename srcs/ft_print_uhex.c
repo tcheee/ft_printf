@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:05:47 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 11:51:35 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 14:09:11 by ayguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 	return (nb);
 }*/
 
-int		ft_print_uhex(va_list ap, const char *f, int t, t_flag flag)
+int		ft_print_uhex(va_list ap, t_flag flag)
 {
 	unsigned int		var;
 	int					nb;
@@ -37,8 +37,8 @@ int		ft_print_uhex(va_list ap, const char *f, int t, t_flag flag)
 
 	nb = 0;
 	k = 0;
-	if (flag.hl == 4 || flag.hl == 3)
-		return (print_long_uhex(ap, f, nb, flag));
+	/*if (flag.hl == 4 || flag.hl == 3)
+		return (print_long_uhex(ap, f, nb, flag));*/
 	var = va_arg(ap, unsigned int);
 	if (flag.hl == 2)
 		var = (char)var;
@@ -52,7 +52,7 @@ int		ft_print_uhex(va_list ap, const char *f, int t, t_flag flag)
 		k = 1;
 	}*/
 	if (flag.sign != 3)
-		flag_space_x(f, nb, t, &nb);
+		flag_space(flag.space, nb, flag.zero, &nb);
 	if (var != 0)
 		flag_hashx(flag, &nb);
 	flag_precision_nb(flag.precis, size, &nb);

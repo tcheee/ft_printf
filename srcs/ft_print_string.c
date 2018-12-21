@@ -6,45 +6,39 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:09:00 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/19 16:34:34 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 14:28:55 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdio.h>
 
-int		ft_print_string(va_list ap, const char *f, int t)
+int		ft_print_string(va_list ap, t_flag flag)
 {
 	char	*str;
 	int		nb;
-	int		size;
 
-	size = -1;
 	str = va_arg(ap, char*);
 	if (str && str[0] != '\0')
 		nb = ft_strlen(str);
 	else
 		nb = 0;
-	size = flag_precision(f, t);
-	if (size > nb)
-		size = nb;
-	else if (size > 0 && nb != 0)
-		nb = size;
-	else if (size == -5)
+	if (flag.precis > nb)
+		flag.precis = nb;
+	else if (flag.precis > 0 && flag.precis != 0)
+		nb = flag.precis;
+	else if (flag.precis == -5)
 	{
-		size = 0;
-		nb = size;
+		flag.precis = 0;
+		nb = 0;
 	}
 	else 
-		size = nb;
-	flag_space(f, nb, t, &nb);
-	if (str != NULL)
-		ft_putnstr(str, size);
-	else
-	{
+		flag.precis = nb;
+	if (flag.sign != 3)
+		flag_space(flag.space, nb, flag.zero, &nb);
+	str != NULL ? ft_putnstr(str, flag.precis) : ft_putstr("(null)");
+	if (str == NULL)
 		nb = 6;
-		ft_putstr("(null)");
-	}
-	flag_space_neg(f, nb, t, &nb);
+	if (flag.sign == 3)
+		flag_space_neg(flag.space, nb, &nb);
 	return (nb);
 }

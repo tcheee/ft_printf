@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 19:27:24 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 11:51:24 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 13:32:49 by ayguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,9 @@ void	flag_hasho(t_flag flag, int *ret)
 	}
 }
 
-void	flag_hashf(const char *f, int t, int *ret)
+void	flag_hashf(t_flag flag, int *ret)
 {
-	int b;
-
-	b = 0;
-	while (f[t] != '\0')
-	{
-		if (f[t] == '#')
-			b = 1;
-		t++;
-	}
-	if (b == 1)
+	if (flag.hash == 1)
 	{
 		ft_putchar('.');
 		(*ret)++;

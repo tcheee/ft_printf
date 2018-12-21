@@ -6,7 +6,7 @@
 #    By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 16:47:38 by ayguillo          #+#    #+#              #
-#    Updated: 2018/12/19 18:05:54 by tcherret         ###   ########.fr        #
+#    Updated: 2018/12/21 10:34:05 by ayguillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,12 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = flag_plus_space.c 	\
+SRCS = capture_the_flag.c	\
+	   get_precision.c		\
+	   get_space_number.c	\
+	   flag_plus_space.c 	\
 	   flag_space.c			\
+	   flag_0.c				\
 	   flag_hash.c			\
 	   flag_space_neg.c		\
 	   flag_precision.c		\
@@ -52,7 +56,6 @@ SRCS = flag_plus_space.c 	\
 	   ft_nblen_unsign.c	\
 	   ft_putnbr_base_addr.c\
 	   ft_putnbr_unsign.c	\
-	   get_precision.c		\
 
 INCS = ft_printf.h
 

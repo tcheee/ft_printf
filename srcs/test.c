@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 10:44:41 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 18:54:13 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 14:19:41 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,26 @@ int		main()
 	int		y1;
 
 
-	str = "test";
+	str = "test %s\n";
 	n = 415416541;
 	str1 = "pour comprendre les strings";
 	nb = 4.1;
-	y = printf("% d test", 42);
+	y = printf("%   +      d", 42);
 	printf("\nretour printf: %d\n", y);
-	y1 = ft_printf("% d test", 42);
+	y1 = ft_printf("%  +     d", 42);
 	printf("\nnotre retour: %d\n", y1);
-	/*y = printf("% d", -42);
+	y = printf("% d", -42);
 	printf("\nretour printf: %d\n", y);
 	y1 = ft_printf("% d", -42);
 	printf("\nnotre retour: %d\n", y1);
 	y = printf("% +d", -42);
 	printf("\nretour printf: %d\n", y);
 	y1 = ft_printf("% +d", -42);
-	printf("\nnotre retour: %d\n", y1);*/
-	/*y = printf("%#######x", 42);
+	printf("\nnotre retour: %d\n", y1);
+	y = printf(str, str1);
 	printf("\nretour printf: %d\n", y);
-	y1 = ft_printf("@moulitest: %#.x %5.0x test", 0, 0);
-;	printf("\nnotre retour: %d\n", y1);
+	y1 = ft_printf("test %s\n", str1);
+	printf("\nnotre retour: %d\n", y1);
 	y = printf("%0++ ++5d ", -42);
 	printf("\nretour printf: %d\n", y);
 	y1 = ft_printf("%0++ ++5d ", -42);
@@ -54,5 +54,5 @@ int		main()
 	y = printf("%d ", 42);
 	printf("\nretour printf: %d\n", y);
 	y1 = ft_printf("%d ", 42);
-	printf("\nnotre retour: %d\n", y1);*/
+	printf("\nnotre retour: %d\n", y1);
 }

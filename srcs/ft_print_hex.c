@@ -6,13 +6,13 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:35:59 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/17 12:15:34 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 11:53:17 by ayguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_print_hex(va_list ap, const char *f, int t)
+int		ft_print_hex(t_flag flag, va_list ap)
 {
 	void				*ptr;
 	unsigned long long	addr;
@@ -21,10 +21,10 @@ int		ft_print_hex(va_list ap, const char *f, int t)
 	nb = 0;
 	ptr = va_arg(ap, void*);
 	addr = (unsigned long long)ptr;
-	flag_space(f, nb, t, &nb);
+	flag_space(flag.space, nb, flag.zero, &nb);
 	ft_putstr("0x");
 	nb +=2;
 	ft_putnbr_base_addr(addr, 16, &nb);
-	flag_space_neg(f, nb, t, &nb);
+	flag_space_neg(flag.space, nb, &nb);
 	return (nb);
 }

@@ -1,46 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nblen_double.c                                  :+:      :+:    :+:   */
+/*   ft_putnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/21 09:28:07 by ayguillo          #+#    #+#             */
-/*   Updated: 2018/12/21 09:28:11 by ayguillo         ###   ########.fr       */
+/*   Created: 2018/11/14 16:37:02 by ayguillo          #+#    #+#             */
+/*   Updated: 2018/11/23 10:57:55 by ayguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-void	ft_nblen_double(long long nb, int *sum)
+void	ft_putnstr(char const *s, int size)
 {
-	int x;
-	int i;
-	double y;
-	double tmp;
+	int	i;
 
 	i = 0;
-	if (nb < 0)
-	{
-		(*sum)++;
-		nb = -nb;
-	}
-	x = (unsigned long long)nb;
-	ft_nblen(x, 10, sum);
-	(*sum)++;
-	y = (nb - x);
-	tmp = y;
-	tmp = tmp * 10;
-	while ((int)tmp == 0 && i < 6)
-	{
-		(*sum)++;
-		tmp = tmp * 10;
-		i++;
-	}
-	while (i < 6)
-	{
-		(*sum)++;
-		tmp = tmp * 10;
-		i++;
-	}
+	if (s)
+		while (s[i] && i < size)
+			i++;
+	write(1, s, i);
 }
