@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 11:27:07 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 16:07:24 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 15:03:30 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	init_flag(t_flag *flag)
 {
 	(*flag).hl = 0;
 	(*flag).sign = 0;
-	(*flag).precis = 0;
+	(*flag).precis = -1;
 	(*flag).zero = 0;
 	(*flag).space = 0;
 	(*flag).hash = 0;

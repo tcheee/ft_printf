@@ -6,7 +6,7 @@
 #    By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 16:47:38 by ayguillo          #+#    #+#              #
-#    Updated: 2018/12/21 10:34:05 by ayguillo         ###   ########.fr        #
+#    Updated: 2018/12/21 15:46:08 by tcherret         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ SRCS = capture_the_flag.c	\
 	   ft_nblen_unsign.c	\
 	   ft_putnbr_base_addr.c\
 	   ft_putnbr_unsign.c	\
+	   unsigned_flag_plus_space.c\
 
 INCS = ft_printf.h
 

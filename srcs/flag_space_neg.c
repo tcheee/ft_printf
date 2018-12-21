@@ -6,20 +6,26 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 17:05:11 by ayguillo          #+#    #+#             */
-/*   Updated: 2018/12/21 12:07:05 by ayguillo         ###   ########.fr       */
+/*   Updated: 2018/12/21 14:47:25 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	flag_space_neg(int space, int nb, int *ret)
+void	flag_space_neg(int space, int precis, int *ret)
 {
 	int		j;
+	int		size;
 
+	size = *ret;
 	j = 0;
+	if (precis < size)
+		precis = 0;
+	else
+		precis = precis - size;
 	if (space > 0)
 	{ 
-		while (j < space - nb)
+		while (j < space - size - precis)
 		{
 			ft_putchar(' ');
 			j++;

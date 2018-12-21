@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:54:04 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 14:08:00 by ayguillo         ###   ########.fr       */
+/*   Updated: 2018/12/21 15:05:26 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	flag_space(int space, int precis, int zero, int *ret)
 	size = *ret;
 	j = 0;
 	c = ' ';
-	if (zero == 1)
+	if (zero == 1 && precis < 0 && precis != -5)
 		c = '0';
 	if (precis <= size)
 		precis = 0;

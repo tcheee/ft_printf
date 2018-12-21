@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 10:44:41 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 14:19:41 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/21 15:53:55 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,16 @@ int		main()
 	n = 415416541;
 	str1 = "pour comprendre les strings";
 	nb = 4.1;
-	y = printf("%   +      d", 42);
+	/* ACHECKERRRRR
+	y = printf("%010.3d", -1);
 	printf("\nretour printf: %d\n", y);
-	y1 = ft_printf("%  +     d", 42);
-	printf("\nnotre retour: %d\n", y1);
-	y = printf("% d", -42);
+	y1 = ft_printf("%010.3d", -1);
+	printf("\nnotre retour: %d\n", y1);*/
+	y = printf("%lu", -1);
 	printf("\nretour printf: %d\n", y);
-	y1 = ft_printf("% d", -42);
+	y1 = ft_printf("%lu", -1);
 	printf("\nnotre retour: %d\n", y1);
-	y = printf("% +d", -42);
+	/*y = printf("% +d", -42);
 	printf("\nretour printf: %d\n", y);
 	y1 = ft_printf("% +d", -42);
 	printf("\nnotre retour: %d\n", y1);
@@ -54,5 +55,5 @@ int		main()
 	y = printf("%d ", 42);
 	printf("\nretour printf: %d\n", y);
 	y1 = ft_printf("%d ", 42);
-	printf("\nnotre retour: %d\n", y1);
+	printf("\nnotre retour: %d\n", y1);*/
 }

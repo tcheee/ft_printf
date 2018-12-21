@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 11:07:24 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 14:09:34 by ayguillo         ###   ########.fr       */
+/*   Updated: 2018/12/21 15:43:51 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ int		flag_plus_space(const char *f, int t);
 int		flag_plus_space_percent(const char *f, int t);
 void	print_flag_plus_space(int hl, int zero, int var, int *ret);
 void	print_flag_plus_space1(int hl, int zero, int *var, int *ret);
+void	print_flag_plus_space_uns(int sign, int zero, unsigned long long *ret);
+void	print_flag_plus_space1_uns(int sign, int zero, unsigned long long *var,
+		unsigned long long *ret);
 int		get_precision(const char *f, int t, int *ret);
 int		get_precision2(const char *f, int t);
 int		flag_precision(const char *f, int t);
