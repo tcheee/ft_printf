@@ -81,8 +81,11 @@ void	flag_space(t_flag flag, int *ret)
 	size = *ret;
 	j = 0;
 	c = ' ';
-	if (flag.zero == 1 && size >= flag.precis)
+	if (flag.zero == 1)
 		c = '0';
+	if (flag.precis != -10)
+		if (size >= flag.precis || flag.space > flag.precis)
+			c = ' ';
 	if (flag.precis <= size)
 		flag.precis = 0;
 	else

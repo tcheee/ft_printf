@@ -27,21 +27,25 @@ int		main()
 	n = 415416541;
 	str1 = "pour comprendre les strings";
 	nb = 4.1;
-	y = printf("111%s333", "222");
+	y = printf("%05.3d", -42);
 	printf("\nretour printf: %d\n", y);
-	y1 = ft_printf("111%s333", "222");
+	y1 = ft_printf("%05.3d", -42);
 	printf("\nnotre retour: %d\n", y1);
-	y = printf("% 10.5d", 42);
+	y = printf("%03.1d", -10);
 	printf("\nretour printf: %d\n", y);
-	y1 = ft_printf("% 10.5d", 42);
+	y1 = ft_printf("%03.1d", -10);
 	printf("\nnotre retour: %d\n", y1);
-	y = printf("%+10.5d", 42);
+	/*y = printf("%3.4d ", 42);
 	printf("\nretour printf: %d\n", y);
-	y1 = ft_printf("%+10.5d", 42);
+	y1 = ft_printf("%3.4d ", 42);
 	printf("\nnotre retour: %d\n", y1);
-	y = printf("%03.2d ", 42);
+	y = printf("%05d ", 42);
 	printf("\nretour printf: %d\n", y);
-	y1 = ft_printf("%03.2d ", 42);
+	y1 = ft_printf("%05d ", 42);
+	printf("\nnotre retour: %d\n", y1);
+	y = printf("%3.d ", 42);
+	printf("\nretour printf: %d\n", y);
+	y1 = ft_printf("%3.d ", 42);
 	printf("\nnotre retour: %d\n", y1);
 	y = printf("%+010d ", 42);
 	printf("\nretour printf: %d\n", y);
@@ -50,5 +54,5 @@ int		main()
 	y = printf("%d ", 42);
 	printf("\nretour printf: %d\n", y);
 	y1 = ft_printf("%d ", 42);
-	printf("\nnotre retour: %d\n", y1);
+	printf("\nnotre retour: %d\n", y1);*/
 }

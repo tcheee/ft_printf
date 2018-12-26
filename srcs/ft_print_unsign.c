@@ -27,13 +27,13 @@ int		print_long_unsign(va_list ap, int nb, t_flag flag)
 		ft_putnbr_base(var1, 10);
 	else
 		nb--;
-	if (flag.sign == 3)
+	if (flag.sign == 3 || flag.sign == 4)
 		flag_space_neg(flag.space, nb, &nb);
 	return (nb);
 }
 
 
-int		ft_print_unsign(va_list ap, t_flag flag/*, const char *f, int i*/)
+int		ft_print_unsign(va_list ap, t_flag flag)
 {
 	unsigned int		var;
 	int					nb;
@@ -56,7 +56,7 @@ int		ft_print_unsign(va_list ap, t_flag flag/*, const char *f, int i*/)
 		ft_putnbr_base(var, 10);
 	else
 		nb--;
-	if (flag.sign == 3)
+	if (flag.sign == 3 || flag.sign == 4)
 		flag_space_neg(flag.space, nb, &nb);
 	return (nb);
 }

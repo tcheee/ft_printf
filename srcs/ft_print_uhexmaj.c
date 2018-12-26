@@ -32,7 +32,7 @@ int		print_long_uhexmaj(va_list ap, int nb, t_flag flag)
 	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var1 == 0))
 		ft_putnbr_basemaj(var1, 16);
-	if (flag.sign == 3)
+	if (flag.sign == 3 || flag.sign == 4)
 		flag_space_neg(flag.space, nb, &nb);
 	return (nb);
 }
@@ -58,7 +58,7 @@ int		ft_print_uhexmaj(va_list ap, t_flag flag)
 		nb = nb + 2;
 	if (flag.hash == 1 && flag.zero == 1)
 		flag_hashxmaj(flag);
-	if (flag.space != 3)
+	if (flag.sign != 3)
 		flag_space(flag, &nb);
 	if (var != 0 && flag.zero == 0)
 		flag_hashxmaj(flag);
@@ -67,7 +67,7 @@ int		ft_print_uhexmaj(va_list ap, t_flag flag)
 		ft_putnbr_basemaj(var, 16);
 	else
 		nb--;
-	if (flag.sign == 3)
+	if (flag.sign == 3 || flag.sign == 4)
 		flag_space_neg(flag.space, nb, &nb);
 	return (nb);
 }

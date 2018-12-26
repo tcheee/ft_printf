@@ -12,10 +12,9 @@
 
 #include "../includes/ft_printf.h"
 
-void		precis0_varneg(long long *var, int *nb)
+void		precis0_varneg(long long *var)
 {
 	ft_putchar('-');
-	(*nb)++;
 	*var = -(*var);
 }
 
@@ -47,24 +46,28 @@ static int		print_long(va_list ap, int nb, t_flag flag)
 		flag_space(flag, &nb);
 	print_flag_plus_space_uns(flag.sign, flag.zero, (unsigned long long*)&var1);
 	if (flag.precis >= 0 && var1 < 0)
-		precis0_varneg((long long *)&var1, &nb);
+		precis0_varneg((long long *)&var1);
 	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var1 == 0))
 		ft_putnbr_base(var1, 10);
 	else
 		nb--;
-	if (flag.sign == 3)
+	if (flag.sign == 3 || flag.sign == 4)
 		flag_space_neg(flag.space, nb, &nb);
 	return (nb);
 }
+
+// print_numbr "bon", a implementer sur les autres print"figures", possibilité de simplifier en prenant ensemble des cas, a checker"
 
 int		ft_print_number(va_list ap, t_flag flag)
 {
 	int	var;
 	int	nb;
 	int size;
+	char	a;
 
 	nb = 0;
+	a = 0;
 	if (flag.hl == 4 || flag.hl == 3)
 		return (print_long(ap, nb, flag));
 	var = va_arg(ap, int);
@@ -75,12 +78,21 @@ int		ft_print_number(va_list ap, t_flag flag)
 	if (!(var == 0 && flag.precis == -5) && !(var == 0 && flag.precis == 0))
 		ft_nblen(var, 10, &nb);
 	size = nb;
+	if (var < 0 && flag.precis != -10)
+	{
+		size--;
+		a = 1;
+	}
 	print_flag_plus_space1(flag, &var, &nb);
+	if (flag.precis >= 0 && var < 0)
+		nb++;
 	if (flag.sign != 3 && flag.sign != 4)
 		flag_space(flag, &nb);
 	print_flag_plus_space(flag.sign, flag.zero, var, &nb);
 	if (flag.precis >= 0 && var < 0)
-		precis0_varneg((long long *)&var, &nb);
+		precis0_varneg((long long *)&var);
+	if (a == 1)
+		nb--;
 	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var == 0))
 		ft_putnbr_base(var, 10);
