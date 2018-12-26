@@ -118,7 +118,7 @@ void	flag_space(t_flag flag, int *ret)
 		flag.precis = 0;
 	else
 		flag.precis = flag.precis - size;
-	if (flag.zero == 0 && flag.sign != 0 && flag.neg == 0)
+	if (flag.neg == 1 && flag.space > tmp && tmp >= 0)
 		size++;
 	if (flag.space > 0)
 		while (j < flag.space - size - flag.precis)
