@@ -20,6 +20,7 @@ void	init_flag(t_flag *flag)
 	(*flag).zero = 0;
 	(*flag).space = 0;
 	(*flag).hash = 0;
+	(*flag).neg = 0;
 }
 
 void	capture_the_flag(const char *f, int t, t_flag *flag)

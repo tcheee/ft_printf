@@ -77,9 +77,13 @@ void	print_flag_plus_space1(t_flag flag, int *var, int *ret)
 		ft_putchar('+');
 		(*ret)++;
 	}
+	if (flag.zero == 1 && flag.sign == 2 && *var >= 0 && flag.space == 0)
+	{
+		ft_putchar(' ');
+		(*ret)++;
+	}
 	if (flag.zero == 1 && *var < 0)
 	{
-
 		if (flag.precis != -10)
 			if (*ret >= flag.precis || flag.space > flag.precis)
 				return ;

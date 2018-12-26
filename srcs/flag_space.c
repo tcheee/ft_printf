@@ -28,7 +28,7 @@ void	flag_space_percent(const char *f, int nb, int t, int *ret)
 			&& f[t] != '9' && f[t] != 'c' && f[t] != 's' && f[t] != 'p'
 			&& f[t] != 'd' && f[t] != 'i' && f[t] != 'o'
 			&& f[t] != 'u' && f[t] != 'x' && f[t] != 'X'
-			&& f[t] != 'f' && f[t] != '%' && f[t] != '\0') // nein !
+			&& f[t] != 'f' && f[t] != '%' && f[t] != '\0')
 	{
 		if (f[t] == '-')
 			break ;
@@ -72,13 +72,41 @@ void	flag_space_o(t_flag flag, int *ret)
 		}
 }
 
-void	flag_space(t_flag flag, int *ret)
+void	flag_space_str(t_flag flag, int *ret)
 {
 	int		j;
 	char	c;
 	int		size;
 
 	size = *ret;
+	j = 0;
+	c = ' ';
+	if (flag.zero == 1)
+		c = '0';
+	if (flag.precis <= size)
+		flag.precis = 0;
+	else
+		flag.precis = flag.precis - size;
+	if (flag.zero == 0 && (flag.sign != 0))
+		size++;
+	if (flag.space > 0)
+		while (j < flag.space - size - flag.precis)
+		{
+			ft_putchar(c);
+			j++;
+			(*ret)++;
+		}
+}
+
+void	flag_space(t_flag flag, int *ret)
+{
+	int		j;
+	char	c;
+	int		size;
+	int		tmp;
+
+	size = *ret;
+	tmp = flag.precis;
 	j = 0;
 	c = ' ';
 	if (flag.zero == 1)
@@ -90,7 +118,7 @@ void	flag_space(t_flag flag, int *ret)
 		flag.precis = 0;
 	else
 		flag.precis = flag.precis - size;
-	if (flag.zero == 0 && (flag.sign != 0))
+	if (flag.zero == 0 && flag.sign != 0 && flag.neg == 0)
 		size++;
 	if (flag.space > 0)
 		while (j < flag.space - size - flag.precis)

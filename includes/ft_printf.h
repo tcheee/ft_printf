@@ -24,6 +24,7 @@ int		precis;
 int		zero;
 int		space;
 int		hash;
+int		neg;
 }				t_flag;
 
 int		ft_printf(const char * format, ...);
@@ -31,7 +32,7 @@ int		dispatcher(va_list ap, int i, const char *format);
 void	capture_the_flag(const char *f, int t, t_flag *flag);
 
 void	increment(const char *format, int *i);
-void	increment_error(const char *format, int *i, int *sum, int *b);
+void	increment_error(const char *format, int *i, int *b);
 
 int		check_error(const char *f, int i);
 int		check_flag_hl(const char *f, int t);
@@ -39,6 +40,7 @@ int		flag_0(const char *f, int t);
 int		get_space_number(const char *f, int t);
 int		get_hash(const char *f, int t);
 void	flag_space(t_flag flag, int *ret);
+void	flag_space_str(t_flag flag, int *ret);
 void	flag_space_o(t_flag flag, int *ret);
 void	flag_space_percent(const char *f, int nb, int t, int *ret);
 void	flag_space_neg(int space, int nb, int *ret);

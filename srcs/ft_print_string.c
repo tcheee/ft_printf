@@ -34,7 +34,7 @@ int		ft_print_string(va_list ap, t_flag flag)
 	else 
 		flag.precis = nb;
 	if (flag.sign != 3)
-		flag_space(flag, &nb);
+		flag_space_str(flag, &nb);
 	str != NULL ? ft_putnstr(str, flag.precis) : ft_putstr("(null)");
 	if (str == NULL)
 		nb = 6;

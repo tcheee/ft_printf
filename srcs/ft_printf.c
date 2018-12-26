@@ -36,7 +36,7 @@ int		ft_printf(const char *format, ...)
 				i++;
 			}
 			else
-				increment_error(format, &i, &sum, &b);
+				increment_error(format, &i, &b);
 		}
 		else
 		{

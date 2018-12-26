@@ -42,7 +42,8 @@ int		check_flag_hl(const char *f, int t)
 			k1++;
 		t++;
 	}
-	if (k == 2 || k1 == 2)
-		h = 2;
+	if (h != 3 && h != 4)
+		if (k == 2 || k1 == 2)
+			h = 2;
 	return (h);
 }

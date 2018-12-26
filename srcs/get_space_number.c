@@ -24,11 +24,10 @@ int		get_space_number(const char *f, int t)
 			&& f[t] != 'u' && f[t] != 'x' && f[t] != 'X'
 			&& f[t] != 'f' && f[t] != '%' && f[t] != '\0' && f[t] != '.')
 		t++;
-	if (f[t] == '0')
+	while (f[t] == '0')
 		t++;
 	while (f[t] == '+' || f[t] == ' ')
 		t++;
 	k = ft_atoi(&f[t]);
-	//printf("nb 0 === %i\n", k);
 	return (k);
 }
