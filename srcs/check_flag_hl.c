@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 11:47:04 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/20 15:18:39 by ayguillo         ###   ########.fr       */
+/*   Updated: 2018/12/27 15:36:12 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		check_flag_hl(const char *f, int t)
 	int	k;
 	int	k1;
 
-	h = -1;
+	h = 0;
 	k = 0;
 	k1 = 0;
 	while (f[t] != 'd' && f[t] != 'i' && f[t] != 'o'

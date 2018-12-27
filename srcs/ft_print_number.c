@@ -6,14 +6,16 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:15:37 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 20:36:12 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/27 15:24:05 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void		precis0_varneg(long long *var)
+void		precis0_varneg(long long *var, t_flag flag, int *nb)
 {
+	if (flag.space != 0)
+		(*nb)++;
 	ft_putchar('-');
 	*var = -(*var);
 }
@@ -46,7 +48,7 @@ static int		print_long(va_list ap, int nb, t_flag flag)
 		flag_space(flag, &nb);
 	print_flag_plus_space_uns(flag.sign, flag.zero, (unsigned long long*)&var1);
 	if (flag.precis >= 0 && var1 < 0)
-		precis0_varneg((long long *)&var1);
+		precis0_varneg((long long *)&var1, flag, &nb);
 	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var1 == 0))
 		ft_putnbr_base(var1, 10);
@@ -86,13 +88,13 @@ int		ft_print_number(va_list ap, t_flag flag)
 		a = 1;
 	}
 	print_flag_plus_space1(flag, &var, &nb);
-	if (flag.precis >= 0 && var < 0)
+	if (flag.precis >= 0 && var < 0 && flag.space == 0)
 		nb++;
 	if (flag.sign != 3 && flag.sign != 4)
 		flag_space(flag, &nb);
 	print_flag_plus_space(flag.sign, flag.zero, var, &nb);
 	if (flag.precis >= 0 && var < 0)
-		precis0_varneg((long long *)&var);
+		precis0_varneg((long long *)&var, flag, &nb);
 	if (a == 1)
 		nb--;
 	flag_precision_nb(flag, size, &nb);

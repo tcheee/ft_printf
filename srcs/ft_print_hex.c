@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:35:59 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 20:11:28 by tcherret         ###   ########.fr       */
+/*   Updated: 2018/12/27 16:50:06 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_print_hex(t_flag flag, va_list ap)
 	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && addr == 0))
 		ft_putnbr_base(addr, 16);
-	if (flag.space == 3 || flag.space == 4)
+	if (flag.sign == 3 || flag.sign == 4)
 		flag_space_neg(flag.space, nb, &nb);
 	return (nb);
 }
