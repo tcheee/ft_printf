@@ -41,6 +41,7 @@ int		get_space_number(const char *f, int t);
 int		get_hash(const char *f, int t);
 void	flag_space(t_flag flag, int *ret);
 void	flag_space_str(t_flag flag, int *ret);
+void	flag_space_hex(t_flag flag, int *ret);
 void	flag_space_o(t_flag flag, int *ret);
 void	flag_space_percent(const char *f, int nb, int t, int *ret);
 void	flag_space_neg(int space, int nb, int *ret);
@@ -52,7 +53,7 @@ void	ft_nblen_unsign(unsigned long long nb, int base, int *ret);
 void	flag_space_neg_print_error(int b, int *sum);
 int		flag_plus_space(const char *f, int t);
 int		flag_plus_space_percent(const char *f, int t);
-void	print_flag_plus_space(int hl, int zero, int var, int *ret);
+void	print_flag_plus_space(t_flag flag, int var, int *ret);
 void	print_flag_plus_space1(t_flag flag, int *var, int *ret);
 void	print_flag_plus_space_uns(int sign, int zero, unsigned long long *ret);
 void	print_flag_plus_space1_uns(int sign, int zero, unsigned long long *var,

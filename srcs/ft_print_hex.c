@@ -29,9 +29,11 @@ int		ft_print_hex(t_flag flag, va_list ap)
 	if (flag.zero == 1)
 		ft_putstr("0x");
 	if (flag.sign != 3 && flag.sign != 4)
-		flag_space(flag, &nb);
+		flag_space_o(flag, &nb);
 	if (flag.zero == 0)
 		ft_putstr("0x");
+	if (flag.precis != -10 && flag.precis != -5 && flag.precis != 0)
+		flag.precis += 2;
 	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && addr == 0))
 		ft_putnbr_base(addr, 16);

@@ -56,14 +56,14 @@ int		flag_plus_space(const char *f, int t)
 	return (b);
 }
 
-void	print_flag_plus_space(int sign, int zero, int var, int *ret)
+void	print_flag_plus_space(t_flag flag, int var, int *ret)
 {
-	if (zero == 0 && (sign == 1 || sign == 4) && var >= 0)
+	if (flag.zero == 0 && (flag.sign == 1 || flag.sign == 4) && var >= 0)
 	{
 		ft_putchar('+');
 		(*ret)++;
 	}
-	else if (zero == 0 && sign == 2 && var >= 0)
+	else if (flag.zero == 0 && flag.sign == 2 && var >= 0 && (flag.space == 0 || flag.precis != -10))
 	{
 		ft_putchar(' ');
 		(*ret)++;
@@ -77,7 +77,7 @@ void	print_flag_plus_space1(t_flag flag, int *var, int *ret)
 		ft_putchar('+');
 		(*ret)++;
 	}
-	if (flag.zero == 1 && flag.sign == 2 && *var >= 0 && flag.space == 0)
+	if (flag.zero == 1 && flag.sign == 2 && *var >= 0)
 	{
 		ft_putchar(' ');
 		(*ret)++;

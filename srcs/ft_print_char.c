@@ -20,7 +20,7 @@ int		ft_print_char(va_list ap, t_flag flag)
 	nb = 1;
 	var = va_arg(ap, int);
 	if (flag.sign != 3)
-		flag_space(flag, &nb);
+		flag_space_str(flag, &nb);
 	ft_putchar(var);
 	var = (char)var;
 	if (flag.sign == 3)

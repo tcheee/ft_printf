@@ -92,7 +92,7 @@ int		ft_print_number(va_list ap, t_flag flag)
 		nb++;
 	if (flag.sign != 3 && flag.sign != 4)
 		flag_space(flag, &nb);
-	print_flag_plus_space(flag.sign, flag.zero, var, &nb);
+	print_flag_plus_space(flag, var, &nb);
 	if (flag.precis >= 0 && var < 0)
 		precis0_varneg((long long *)&var, flag, &nb);
 	if (a == 1)

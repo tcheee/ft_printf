@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include <unistd.h>
 
 int		ft_print_string(va_list ap, t_flag flag)
 {
@@ -35,8 +36,11 @@ int		ft_print_string(va_list ap, t_flag flag)
 		flag.precis = nb;
 	if (flag.sign != 3)
 		flag_space_str(flag, &nb);
-	str != NULL ? ft_putnstr(str, flag.precis) : ft_putstr("(null)");
-	if (str == NULL)
+	if (str != NULL)
+		ft_putnstr(str, flag.precis);
+	else if (str == NULL && flag.space == 0)
+		ft_putstr("(null)");
+	if (str == NULL && flag.space == 0)
 		nb = 6;
 	if (flag.sign == 3)
 		flag_space_neg(flag.space, nb, &nb);
