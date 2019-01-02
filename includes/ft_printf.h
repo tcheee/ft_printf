@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 11:07:24 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 20:35:07 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/02 17:01:15 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	ft_putnbr_base_addr(unsigned long long nb, int base, int *ret);
 void	ft_putnbr_basemaj(long long nb, int base);
 void	ft_putnbr_double(double nb, int size);
 void	ft_putnbr_unsign(unsigned long long nb, int base);
+void	ft_putnbr_unsign_maj(unsigned long long nb, int base);
 void	ft_nblen(long long nb, int base, int *sum);
 void	ft_nblen_double(long long nb, int *sum);
 void	ft_nblen_unsign(unsigned long long nb, int base, int *ret);

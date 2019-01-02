@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 17:05:11 by ayguillo          #+#    #+#             */
-/*   Updated: 2018/12/21 20:20:46 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/02 15:45:23 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	flag_space_neg(int space, int precis, int *ret)
 	int		size;
 
 	size = *ret;
+	if (space < 0)
+		space = -space;
 	j = 0;
 	if (precis < size)
 		precis = 0;

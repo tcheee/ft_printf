@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:05:47 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 20:35:26 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/02 17:13:51 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		print_long_uhex(va_list ap, int nb, t_flag flag)
 
 	var1 = va_arg(ap, unsigned long long);
 	if (!(var1 == 0 && flag.precis == -5) && !(var1 == 0 && flag.precis == 0))
-		ft_nblen(var1, 16, &nb);
+		ft_nblen_unsign(var1, 16, &nb);
 	size = nb;
 	if (flag.hash == 1 && var1 != 0)
 		nb = nb + 2;
@@ -34,7 +34,7 @@ int		print_long_uhex(va_list ap, int nb, t_flag flag)
 		flag_hashx(flag);
 	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var1 == 0))
-		ft_putnbr_base(var1, 16);
+		ft_putnbr_unsign(var1, 16);
 	if (flag.sign == 3 || flag.sign == 4)
 		flag_space_neg(flag.space, nb, &nb);
 	return (nb);
@@ -51,9 +51,9 @@ int		ft_print_uhex(va_list ap, t_flag flag)
 		return (print_long_uhex(ap, nb, flag));
 	var = va_arg(ap, unsigned int);
 	if (flag.hl == 2)
-		var = (char)var;
+		var = (unsigned char)var;
 	else if (flag.hl == 1)
-		var = (short)var;
+		var = (unsigned short)var;
 	if (!(var == 0 && flag.precis == -5) && !(var == 0 && flag.precis == 0))
 		ft_nblen(var, 16, &nb);
 	size = nb;

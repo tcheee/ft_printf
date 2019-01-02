@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:56:48 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/27 16:08:23 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/02 16:57:57 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		print_long_octal(va_list ap, int nb, t_flag flag)
 	unsigned long long var1;
 
 	var1 = va_arg(ap, unsigned long long);
-	ft_nblen(var1, 8, &nb);
+	ft_nblen_unsign(var1, 8, &nb);
 	size = nb;
 	if (flag.sign != 3)
 		flag_space_o(flag, &nb);
@@ -27,7 +27,7 @@ int		print_long_octal(va_list ap, int nb, t_flag flag)
 		flag_hasho(flag);
 	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var1 == 0))
-		ft_putnbr_base(var1, 8);
+		ft_putnbr_unsign(var1, 8);
 	if (flag.sign == 3 || flag.sign == 4)
 		flag_space_neg(flag.space, nb, &nb);
 	return (nb);
@@ -44,9 +44,9 @@ int		ft_print_octal(va_list ap, t_flag flag)
 		return (print_long_octal(ap, nb, flag));
 	var = va_arg(ap, unsigned int);
 	if (flag.hl == 2)
-		var = (char)var;
+		var = (unsigned char)var;
 	else if (flag.hl == 1)
-		var = (short)var;
+		var = (unsigned short)var;
 	if (!(var == 0 && (flag.precis == -5 || flag.precis == 0) && flag.hash == 0))
 		ft_nblen(var, 8, &nb);
 	size = nb;
