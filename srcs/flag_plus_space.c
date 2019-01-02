@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:22:43 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/02 15:13:43 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/02 19:32:50 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,12 @@ void	print_flag_plus_space(t_flag flag, int var, int *ret)
 {
 	if (flag.zero == 0 && (flag.sign == 1 || flag.sign == 4) && var >= 0)
 		ft_putchar('+');
+	else if (flag.zero == 1 && (flag.sign == 1 || flag.sign == 4) && var >= 0
+			&& flag.precis < flag.space - 1 && flag.precis != -10)
+	{
+		ft_putchar ('+');
+		(*ret)++;
+	}
 	else if (flag.zero == 0 && flag.sign == 2 && var >= 0 && (flag.space == 0 || flag.precis != -10))
 	{
 		ft_putchar(' ');
@@ -71,6 +77,8 @@ void	print_flag_plus_space1(t_flag flag, int *var, int *ret)
 {
 	if (flag.zero == 1 && (flag.sign == 1 || flag.sign == 4) && *var >= 0)
 	{
+		if (flag.precis != -10 && flag.precis < flag.space - 1)
+			return ;
 		ft_putchar('+');
 		(*ret)++;
 	}

@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:54:04 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/27 15:10:53 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/02 19:21:21 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ void	flag_space_o(t_flag flag, int *ret)
 	c = ' ';
 	if (flag.zero == 1)
 		c = '0';
+	if (flag.precis != -10)
+		if (size >= flag.precis || flag.space > flag.precis)
+			c = ' ';
 	if (flag.precis <= size)
 		flag.precis = 0;
 	else

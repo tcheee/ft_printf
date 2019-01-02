@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:15:37 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/02 15:46:19 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/02 18:58:04 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,14 @@ static int		print_long(va_list ap, int nb, t_flag flag)
 	size = nb;
 	print_flag_plus_space1_uns(flag.sign, flag.zero,
 			(unsigned long long*)&var1, (unsigned long long*)&nb);
-	if (flag.sign != 3 || flag.precis )
+	if (flag.sign != 3 || flag.precis)
 		flag_space(flag, &nb);
-	print_flag_plus_space_uns(flag.sign, flag.zero, (unsigned long long*)&var1);
+	print_flag_plus_space_uns(flag.sign, flag.zero, (unsigned long long*)&nb);
 	if (flag.precis >= 0 && var1 < 0)
 		precis0_varneg((long long *)&var1, flag, &nb);
 	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var1 == 0))
 		ft_putnbr_base(var1, 10);
-	else
-		nb--;
 	if (flag.sign == 3 || flag.sign == 4)
 		flag_space_neg(flag.space, nb, &nb);
 	return (nb);

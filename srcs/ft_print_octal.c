@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:56:48 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/02 16:57:57 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/02 19:32:48 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		ft_print_octal(va_list ap, t_flag flag)
 		nb++;
 	if (flag.sign != 3)
 		flag_space_o(flag, &nb);
-	if (var != 0 || (var == 0 && (flag.precis == 0 || flag.precis == -5)))
+	if ((var != 0 && (flag.precis == -10 || flag.precis == -5)) || (var == 0 && (flag.precis == 0 || flag.precis == -5)))
 		flag_hasho(flag);
 	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var == 0))
