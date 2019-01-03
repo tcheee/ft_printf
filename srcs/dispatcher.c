@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 12:07:39 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/02 17:31:53 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:37:31 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		dispatcher(va_list ap, int i, const char *f)
 {
-	int t;
-	t_flag flag;
+	int		t;
+	t_flag	flag;
 
 	t = i;
 	capture_the_flag(f, t, &flag);

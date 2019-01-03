@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:23:41 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 20:11:21 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:49:19 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int		ft_print_float(va_list ap, const char *f, int t, t_flag flag)
 
 	nb = 0;
 	if (flag.hash == 5 || flag.hash == 3)
-		var = va_arg(ap, long double);	
-	var = va_arg(ap, double);	
+		var = va_arg(ap, long double);
+	var = va_arg(ap, double);
 	ft_nblen_double(var, &nb);
 	if (flag.precis == -1)
 		flag.precis = 6;

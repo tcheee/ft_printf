@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:54:04 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/03 14:55:06 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:48:04 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,8 @@ void	flag_space(t_flag flag, int *ret)
 		flag.precis = flag.precis - size;
 	if (flag.neg == 0 && flag.sign != 0 && flag.space > tmp && tmp >= 0)
 		size++;
-	if (flag.neg == 1 && (flag.zero == 1 || flag.sign != 0 || tmp >= size) && flag.space > tmp && tmp >= 0)
+	if (flag.neg == 1 && (flag.zero == 1 || flag.sign != 0 || tmp >= size)
+			&& flag.space > tmp && tmp >= 0)
 		size++;
 	if (flag.space > 0)
 		while (j < flag.space - size - flag.precis)

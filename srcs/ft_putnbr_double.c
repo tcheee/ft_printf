@@ -6,14 +6,13 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:49:46 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/19 10:38:19 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:37:06 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdlib.h>
 
-static char	*ft_dtoa(long double nb, int size)
+static char		*ft_dtoa(long double nb, int size)
 {
 	unsigned long long	len;
 	long long			tmp;
@@ -36,7 +35,7 @@ static char	*ft_dtoa(long double nb, int size)
 	return (str);
 }
 
-void	ft_putnbr_double(double nb, int size)
+void			ft_putnbr_double(double nb, int size)
 {
 	char	*pint;
 	char	*test;

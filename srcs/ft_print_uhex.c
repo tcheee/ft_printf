@@ -6,19 +6,17 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:05:47 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/03 15:27:44 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:51:05 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 // pas oublier de recopier 	if (!(var == 0 && flag.precis == -5) && !(var == 0 && flag.precis == 0)) dans les print long de chaque fonction
-
-
 int		print_long_uhex(va_list ap, int nb, t_flag flag)
 {
-	int size;
-	unsigned long long var1;
+	int					size;
+	unsigned long long	var1;
 
 	var1 = va_arg(ap, unsigned long long);
 	if (!(var1 == 0 && flag.precis == -5) && !(var1 == 0 && flag.precis == 0))
@@ -61,11 +59,13 @@ int		ft_print_uhex(va_list ap, t_flag flag)
 	size = nb;
 	if (flag.hash == 1 && var != 0 && flag.precis < size)
 		nb = nb + 2;
-	if (var != 0 && flag.hash == 1 && flag.zero == 1 && !(flag.space > 0 && flag.precis != -10))
+	if (var != 0 && flag.hash == 1 && flag.zero == 1
+			&& !(flag.space > 0 && flag.precis != -10))
 		flag_hashx(flag);
 	if (flag.sign != 3)
 		flag_space_x(flag, &nb);
-	if (flag.hash == 1 && var != 0 && ((flag.zero == 0) || (flag.space > 0 && flag.precis != -10)))
+	if (flag.hash == 1 && var != 0 && ((flag.zero == 0)
+				|| (flag.space > 0 && flag.precis != -10)))
 		flag_hashx(flag);
 	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var == 0))

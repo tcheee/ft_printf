@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 11:07:24 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/03 13:43:29 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:51:53 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdarg.h>
 # include "../libft/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct	s_flag
 {

@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:06:22 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/03 14:56:57 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:42:16 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		print_long_uhexmaj(va_list ap, int nb, t_flag flag)
 {
-	int size;
-	unsigned long long var1;
+	int					size;
+	unsigned long long	var1;
 
 	var1 = va_arg(ap, unsigned long long);
 	if (!(var1 == 0 && flag.precis == -5) && !(var1 == 0 && flag.precis == 0))
@@ -40,8 +40,8 @@ int		print_long_uhexmaj(va_list ap, int nb, t_flag flag)
 int		ft_print_uhexmaj(va_list ap, t_flag flag)
 {
 	unsigned int		var;
-	int				nb;
-	int				size;
+	int					nb;
+	int					size;
 
 	nb = 0;
 	if (flag.hl == 4 || flag.hl == 3)

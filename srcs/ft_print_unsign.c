@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:04:54 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/02 16:45:37 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:41:39 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		print_long_unsign(va_list ap, int nb, t_flag flag)
 {
-	unsigned long long var1;
+	unsigned long long	var1;
 	int					size;
 
 	var1 = va_arg(ap, unsigned long long);
@@ -32,7 +32,6 @@ int		print_long_unsign(va_list ap, int nb, t_flag flag)
 	return (nb);
 }
 
-
 int		ft_print_unsign(va_list ap, t_flag flag)
 {
 	unsigned int		var;
@@ -43,7 +42,7 @@ int		ft_print_unsign(va_list ap, t_flag flag)
 	if (flag.hl == 4 || flag.hl == 3)
 		return (print_long_unsign(ap, nb, flag));
 	var = va_arg(ap, unsigned int);
-	if (flag.hl == 2 )
+	if (flag.hl == 2)
 		var = (unsigned char)var;
 	else if (flag.hl == 1)
 		var = (unsigned short)var;

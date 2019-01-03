@@ -6,12 +6,11 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:09:00 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/02 18:11:48 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:45:23 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <unistd.h>
 
 int		ft_print_string(va_list ap, t_flag flag)
 {
@@ -37,7 +36,7 @@ int		ft_print_string(va_list ap, t_flag flag)
 		flag.precis = 0;
 		nb = 0;
 	}
-	else if (str != '\0' && flag.precis != 0) 
+	else if (str != '\0' && flag.precis != 0)
 		flag.precis = nb;
 	if (flag.sign != 3)
 		flag_space_str(flag, &nb);

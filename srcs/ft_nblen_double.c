@@ -6,7 +6,7 @@
 /*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/21 09:28:07 by ayguillo          #+#    #+#             */
-/*   Updated: 2018/12/21 09:28:11 by ayguillo         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:48:44 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_nblen_double(long long nb, int *sum)
 {
-	int x;
-	int i;
-	double y;
-	double tmp;
+	int		x;
+	int		i;
+	double	y;
+	double	tmp;
 
 	i = 0;
 	if (nb < 0)

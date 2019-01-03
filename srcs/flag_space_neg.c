@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 17:05:11 by ayguillo          #+#    #+#             */
-/*   Updated: 2019/01/02 15:45:23 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:48:23 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	flag_space_neg(int space, int precis, int *ret)
 	else
 		precis = precis - size;
 	if (space > 0)
-	{ 
+	{
 		while (j < space - size - precis)
 		{
 			ft_putchar(' ');
@@ -59,4 +59,3 @@ void	flag_space_neg_print_error(int b, int *sum)
 		b--;
 	}
 }
-

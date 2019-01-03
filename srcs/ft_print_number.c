@@ -6,13 +6,13 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:15:37 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/02 18:58:04 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:50:48 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void		precis0_varneg(long long *var, t_flag flag, int *nb)
+void			precis0_varneg(long long *var, t_flag flag, int *nb)
 {
 	if (flag.space != 0)
 		(*nb)++;
@@ -20,7 +20,7 @@ void		precis0_varneg(long long *var, t_flag flag, int *nb)
 	*var = -(*var);
 }
 
-int		ft_get_lld_min(int nb, long long var1)
+int				ft_get_lld_min(int nb, long long var1)
 {
 	unsigned long long n;
 
@@ -57,13 +57,11 @@ static int		print_long(va_list ap, int nb, t_flag flag)
 	return (nb);
 }
 
-// print_numbr "bon", a implementer sur les autres print"figures", possibilité de simplifier en prenant ensemble des cas, a checker"
-
-int		ft_print_number(va_list ap, t_flag flag)
+int				ft_print_number(va_list ap, t_flag flag)
 {
-	int	var;
-	int	nb;
-	int size;
+	int		var;
+	int		nb;
+	int		size;
 	char	a;
 
 	nb = 0;
