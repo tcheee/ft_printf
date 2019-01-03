@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 11:07:24 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/03 12:00:56 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 13:43:29 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	flag_space(t_flag flag, int *ret);
 void	flag_space_str(t_flag flag, int *ret);
 void	flag_space_hex(t_flag flag, int *ret);
 void	flag_space_o(t_flag flag, int *ret);
+void	flag_space_x(t_flag flag, int *ret);
 void	flag_space_percent(const char *f, int nb, int t, int *ret);
 void	flag_space_neg(int space, int nb, int *ret);
 int		flag_space_neg_nb_error(const char *f, int t);

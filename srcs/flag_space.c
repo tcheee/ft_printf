@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:54:04 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/03 12:42:57 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 14:55:06 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,43 @@ void	flag_space_percent(const char *f, int nb, int t, int *ret)
 	k = ft_atoi(&f[t]);
 	if (k > 0)
 		while (j < k - nb)
+		{
+			ft_putchar(c);
+			j++;
+			(*ret)++;
+		}
+}
+
+void	flag_space_x(t_flag flag, int *ret)
+{
+	int		j;
+	char	c;
+	int		size;
+	int		tmp;
+
+	tmp = flag.precis;
+	size = *ret;
+	j = 0;
+	c = ' ';
+	if (flag.zero == 1)
+		c = '0';
+	if (flag.precis != -10)
+		if (size >= flag.precis || flag.space > flag.precis)
+			c = ' ';
+	if (flag.precis <= size)
+		flag.precis = 0;
+	else
+		flag.precis = flag.precis - size;
+	if (flag.neg == 0)
+	{
+		if (flag.hash == 1 && tmp >= size)
+		{
+			size += 2;
+			(*ret) = (*ret) + 2;
+		}
+	}
+	if (flag.space > 0)
+		while (j < flag.space - size - flag.precis)
 		{
 			ft_putchar(c);
 			j++;

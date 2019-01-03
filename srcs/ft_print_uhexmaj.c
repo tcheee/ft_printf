@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:06:22 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/02 17:01:26 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 14:56:57 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		print_long_uhexmaj(va_list ap, int nb, t_flag flag)
 	if (flag.hash == 1 && flag.zero == 1)
 		flag_hashxmaj(flag);
 	if (flag.sign != 3)
-		flag_space(flag, &nb);
+		flag_space_x(flag, &nb);
 	if (var1 != 0 && flag.zero == 0)
 		flag_hashxmaj(flag);
 	flag_precision_nb(flag, size, &nb);
@@ -51,22 +51,22 @@ int		ft_print_uhexmaj(va_list ap, t_flag flag)
 		var = (unsigned char)var;
 	else if (flag.hl == 1)
 		var = (unsigned short)var;
-	if (!(var == 0 && flag.precis == -5) && !(var == 0 && flag.precis == 0))
+	if (var == 0)
+		flag.neg = 1;
+	if (!(var == 0 && (flag.precis == -5 || flag.precis == 0)))
 		ft_nblen(var, 16, &nb);
 	size = nb;
-	if (flag.hash == 1 && var != 0)
+	if (flag.hash == 1 && var != 0 && flag.precis < size)
 		nb = nb + 2;
-	if (flag.hash == 1 && flag.zero == 1)
+	if (var != 0 && flag.hash == 1 && flag.zero == 1 && flag.space == 0)
 		flag_hashxmaj(flag);
 	if (flag.sign != 3)
-		flag_space(flag, &nb);
-	if (var != 0 && flag.zero == 0)
+		flag_space_x(flag, &nb);
+	if (var != 0 && ((flag.zero == 0) || (flag.zero == 1 && flag.space > 0)))
 		flag_hashxmaj(flag);
 	flag_precision_nb(flag, size, &nb);
 	if (!((flag.precis == 0 || flag.precis == -5) && var == 0))
 		ft_putnbr_basemaj(var, 16);
-	else
-		nb--;
 	if (flag.sign == 3 || flag.sign == 4)
 		flag_space_neg(flag.space, nb, &nb);
 	return (nb);
