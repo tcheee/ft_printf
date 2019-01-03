@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 11:07:24 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/02 17:01:15 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 12:00:56 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	increment_error(const char *format, int *i, int *b);
 int		check_error(const char *f, int i);
 int		check_flag_hl(const char *f, int t);
 int		flag_0(const char *f, int t);
-int		get_space_number(const char *f, int t);
+int		get_space_number(const char *f, int t, t_flag flag);
 int		get_hash(const char *f, int t);
 void	flag_space(t_flag flag, int *ret);
 void	flag_space_str(t_flag flag, int *ret);

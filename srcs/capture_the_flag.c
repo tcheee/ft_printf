@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 11:27:07 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 17:30:36 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 12:05:37 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ void	capture_the_flag(const char *f, int t, t_flag *flag)
 	(*flag).sign = flag_plus_space(f, t);
 	(*flag).precis = flag_precision(f, t);
 	(*flag).zero = flag_0(f, t);
-	(*flag).space = get_space_number(f, t);
 	(*flag).hash = get_hash(f, t);
+	(*flag).space = get_space_number(f, t, *flag);
 }

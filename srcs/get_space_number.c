@@ -6,16 +6,19 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 11:41:56 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 20:53:58 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 12:01:38 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		get_space_number(const char *f, int t)
+int		get_space_number(const char *f, int t, t_flag flag)
 {
 	int		k;
 
+	if (flag.hash == 1)
+		while (f[t] != '#')
+			t++;
 	while (f[t] != '0' && f[t] != '1' && f[t] != '2'
 			&& f[t] != '3' && f[t] != '4' && f[t] != '5'
 			&& f[t] != '6' && f[t] != '7' && f[t] != '8'

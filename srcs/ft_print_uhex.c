@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:05:47 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/02 17:13:51 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 12:51:28 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		ft_print_uhex(va_list ap, t_flag flag)
 		var = (unsigned char)var;
 	else if (flag.hl == 1)
 		var = (unsigned short)var;
-	if (!(var == 0 && flag.precis == -5) && !(var == 0 && flag.precis == 0))
+	if (!(var == 0 && (flag.precis == -5 || flag.precis == 0) && flag.hash == 0))
 		ft_nblen(var, 16, &nb);
 	size = nb;
 	if (flag.hash == 1 && var != 0)
@@ -62,7 +62,7 @@ int		ft_print_uhex(va_list ap, t_flag flag)
 	if (flag.hash == 1 && flag.zero == 1)
 		flag_hashx(flag);
 	if (flag.sign != 3)
-		flag_space(flag, &nb);
+		flag_space_o(flag, &nb);
 	if (var != 0 && flag.zero == 0)
 		flag_hashx(flag);
 	flag_precision_nb(flag, size, &nb);
