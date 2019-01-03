@@ -6,13 +6,22 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:51:56 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 20:41:08 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 17:19:08 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		flag_precision(const char *f, int t)
+static void		ending(char *flag, int k, int *size)
+{
+	flag[k] = '\0';
+	*size = ft_atoi(flag);
+	free(flag);
+	if (k == 0)
+		*size = -5;
+}
+
+int				flag_precision(const char *f, int t)
 {
 	char	*flag;
 	int		k;
@@ -36,15 +45,11 @@ int		flag_precision(const char *f, int t)
 		k++;
 		t++;
 	}
-	flag[k] = '\0';
-	size = ft_atoi(flag);
-	free(flag);
-	if (k == 0)
-		size = -5;
+	ending(flag, k, &size);
 	return (size);
 }
 
-void	flag_precision_nb(t_flag flag, int nb, int *ret)
+void			flag_precision_nb(t_flag flag, int nb, int *ret)
 {
 	while (flag.precis > nb)
 	{

@@ -6,7 +6,7 @@
 #    By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 16:47:38 by ayguillo          #+#    #+#              #
-#    Updated: 2019/01/02 17:32:52 by tcherret         ###   ########.fr        #
+#    Updated: 2019/01/03 17:51:35 by tcherret         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS = capture_the_flag.c	\
 	   get_precision.c		\
 	   get_space_number.c	\
 	   flag_plus_space.c 	\
-	   flag_space.c			\
+	   flag_space_char.c	\
+	   flag_space_nb.c		\
 	   flag_0.c				\
 	   flag_hash.c			\
 	   flag_space_neg.c		\

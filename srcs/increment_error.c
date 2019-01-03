@@ -6,13 +6,13 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 12:18:32 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/03 16:06:37 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 17:32:24 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int		increment_error1(const char *f, int *i, int j)
+static int				increment_error1(const char *f, int *i, int j)
 {
 	if (f[j] == 'c' || f[j] == 's' || f[j] == 'p'
 			|| f[j] == 'd' || f[j] == 'i' || f[j] == 'o'
@@ -27,28 +27,37 @@ static int		increment_error1(const char *f, int *i, int j)
 	return (0);
 }
 
-void			increment_error(const char *f, int *i, int *b)
+static void				give_b_the_value(const char *f, int t, int *b)
+{
+	if (*b == -5)
+		if (flag_space_neg_nb_error(f, t) != 0)
+			*b = -flag_space_neg_nb_error(f, t);
+}
+
+static void				starter(int *t, int *j, int *i)
+{
+	*j = *i;
+	*t = *i;
+}
+
+void					increment_error(const char *f, int *i, int *b)
 {
 	int		t;
 	int		j;
 	t_flag	flag;
 
-	j = *i;
-	t = *i;
+	starter(&t, &j, i);
 	capture_the_flag(f, t, &flag);
 	while (f[j] != '\0' && f[j] != '%')
 	{
 		if (f[j] < 58 || f[j] > 126)
 		{
-			if (f[j] >= '0' && f[j] <= '9')
-				(*i)++;
-			else if (f[j] == '.' || f[j] == '+' || f[j] == '#')
+			if ((f[j] >= '0' && f[j] <= '9')
+					|| f[j] == '.' || f[j] == '+' || f[j] == '#')
 				(*i)++;
 			else if (f[j] == '-')
 			{
-				if (*b == -5)
-					if (flag_space_neg_nb_error(f, t) != 0)
-						*b = -flag_space_neg_nb_error(f, t);
+				give_b_the_value(f, t, b);
 				(*i)++;
 			}
 			else if (f[j] == ' ')

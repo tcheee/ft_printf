@@ -6,11 +6,17 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:35:59 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/27 16:50:06 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 18:16:02 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+static void		get_space(int *nb, int *size)
+{
+	*nb += 2;
+	*size = *nb;
+}
 
 int		ft_print_hex(t_flag flag, va_list ap)
 {
@@ -24,8 +30,7 @@ int		ft_print_hex(t_flag flag, va_list ap)
 	addr = (unsigned long long)ptr;
 	if (!((flag.precis == 0 || flag.precis == -5) && addr == 0))
 		ft_nblen(addr, 16, &nb);
-	nb += 2;
-	size = nb;
+	get_space(&nb, &size);
 	if (flag.zero == 1)
 		ft_putstr("0x");
 	if (flag.sign != 3 && flag.sign != 4)

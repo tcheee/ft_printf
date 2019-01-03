@@ -6,19 +6,26 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 11:47:04 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/27 15:36:12 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 17:10:55 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	gain_space(int *h, int *k)
+static void		gain_space(int *h, int *k)
 {
 	*h = 1;
 	(*k)++;
 }
 
-int		check_flag_hl(const char *f, int t)
+static void		gain_space1(int *h, int k, int k1)
+{
+	if (*h != 3 && *h != 4)
+		if (k == 2 || k1 == 2)
+			*h = 2;
+}
+
+int				check_flag_hl(const char *f, int t)
 {
 	int	h;
 	int	k;
@@ -28,7 +35,7 @@ int		check_flag_hl(const char *f, int t)
 	k = 0;
 	k1 = 0;
 	while (f[t] != 'd' && f[t] != 'i' && f[t] != 'o'
-				&& f[t] != 'u' && f[t] != 'x' && f[t] != 'X')
+			&& f[t] != 'u' && f[t] != 'x' && f[t] != 'X')
 	{
 		if (f[t] == 'l' && f[t + 1] == 'l' && h < 4)
 			h = 4;
@@ -42,8 +49,6 @@ int		check_flag_hl(const char *f, int t)
 			k1++;
 		t++;
 	}
-	if (h != 3 && h != 4)
-		if (k == 2 || k1 == 2)
-			h = 2;
+	gain_space1(&h, k, k1);
 	return (h);
 }

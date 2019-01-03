@@ -6,13 +6,22 @@
 /*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/21 09:28:07 by ayguillo          #+#    #+#             */
-/*   Updated: 2019/01/03 15:48:44 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/03 17:24:04 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	ft_nblen_double(long long nb, int *sum)
+static void		get_neg(long long *nb, int *sum)
+{
+	if (*nb < 0)
+	{
+		(*sum)++;
+		*nb = -(*nb);
+	}
+}
+
+void			ft_nblen_double(long long nb, int *sum)
 {
 	int		x;
 	int		i;
@@ -20,11 +29,7 @@ void	ft_nblen_double(long long nb, int *sum)
 	double	tmp;
 
 	i = 0;
-	if (nb < 0)
-	{
-		(*sum)++;
-		nb = -nb;
-	}
+	get_neg(&nb, sum);
 	x = (unsigned long long)nb;
 	ft_nblen(x, 10, sum);
 	(*sum)++;
