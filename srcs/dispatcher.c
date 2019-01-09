@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 12:07:39 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/03 17:05:42 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/04 19:02:31 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int				dispatcher(va_list ap, int i, const char *f)
 	if ((a = dispatcher1(f, i, ap, flag)) != -100)
 		return (a);
 	if (f[i] == 'f')
-		return (ft_print_float(ap, f, t, flag));
+		return (ft_print_float(ap, flag));
 	else if (f[i] == '%')
 		return (ft_print_percent(flag, f, t));
 	return (-1);

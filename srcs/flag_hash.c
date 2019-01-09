@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 19:27:24 by tcherret          #+#    #+#             */
-/*   Updated: 2018/12/21 16:26:02 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/04 17:59:25 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,8 @@ void	flag_hasho(t_flag flag)
 		ft_putstr("0");
 }
 
-void	flag_hashf(t_flag flag, int *ret)
+void	flag_hashf(t_flag flag)
 {
 	if (flag.hash == 1)
-	{
 		ft_putchar('.');
-		(*ret)++;
-	}
 }

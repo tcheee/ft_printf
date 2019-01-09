@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:35:59 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/03 18:16:02 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/04 16:16:44 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void		get_space(int *nb, int *size)
 	*size = *nb;
 }
 
-int		ft_print_hex(t_flag flag, va_list ap)
+int				ft_print_hex(t_flag flag, va_list ap)
 {
 	void				*ptr;
 	unsigned long long	addr;

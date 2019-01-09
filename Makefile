@@ -6,13 +6,11 @@
 #    By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 16:47:38 by ayguillo          #+#    #+#              #
-#    Updated: 2019/01/03 17:51:35 by tcherret         ###   ########.fr        #
+#    Updated: 2019/01/04 20:34:52 by tcherret         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-
-TESTNAME = printtest
 
 LIBFT = libft
 
@@ -58,6 +56,7 @@ SRCS = capture_the_flag.c	\
 	   ft_putnbr_base_addr.c\
 	   ft_putnbr_unsign.c	\
 	   unsigned_flag_plus_space.c\
+	   save_spaceprintnumb.c\
 
 INCS = ft_printf.h
 
@@ -99,12 +98,4 @@ fclean : clean
 
 re : fclean all
 
-test : all
-	@$(CC) $(CFLAGS) -o $(TESTNAME) $(SRCSDIR)test.c -L./ -lftprintf
-	@echo "Test ready ✔"
-
-testclean :
-	@rm -f $(TESTNAME)
-	@echo "Test deleted ✕"
-
-.PHONY : all clean fclean re test
+.PHONY : all clean fclean re

@@ -6,15 +6,15 @@
 /*   By: ayguillo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:59:12 by ayguillo          #+#    #+#             */
-/*   Updated: 2019/01/03 18:46:33 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/04 15:35:31 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_len_nbr(long n)
+static int		ft_len_nbr(long long n)
 {
-	int		len;
+	long long	len;
 
 	len = 0;
 	if (n < 0)
@@ -30,11 +30,11 @@ static int		ft_len_nbr(long n)
 	return (len);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long n)
 {
-	long	nbr;
-	char	*str;
-	int		len;
+	long long		nbr;
+	char			*str;
+	long long		len;
 
 	nbr = n;
 	len = ft_len_nbr(nbr);

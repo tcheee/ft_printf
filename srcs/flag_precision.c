@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:51:56 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/03 17:19:08 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/04 19:55:36 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,19 @@ static void		ending(char *flag, int k, int *size)
 {
 	flag[k] = '\0';
 	*size = ft_atoi(flag);
-	free(flag);
 	if (k == 0)
 		*size = -5;
+	free(flag);
+}
+
+static void		gain_space(const char *f, char **flag, int *t, int *k)
+{
+	while (f[*t] >= '0' && f[*t] <= '9')
+	{
+		(*flag)[*k] = f[*t];
+		(*k)++;
+		(*t)++;
+	}
 }
 
 int				flag_precision(const char *f, int t)
@@ -29,7 +39,7 @@ int				flag_precision(const char *f, int t)
 
 	k = 0;
 	increment(f, &k);
-	if (!(flag = malloc(sizeof(flag) * (k + 1))))
+	if (!(flag = (char*)malloc(sizeof(*flag) * (k + 1))))
 		return (-1);
 	k = 0;
 	while (f[t] != '.' && f[t] != 'c' && f[t] != 's' && f[t] != 'p'
@@ -37,14 +47,12 @@ int				flag_precision(const char *f, int t)
 			&& f[t] != 'x' && f[t] != 'X' && f[t] != 'f' && f[t] != '%')
 		t++;
 	if (f[t] != '.')
-		return (-10);
-	t++;
-	while (f[t] >= '0' && f[t] <= '9')
 	{
-		flag[k] = f[t];
-		k++;
-		t++;
+		free(flag);
+		return (-10);
 	}
+	t++;
+	gain_space(f, &flag, &t, &k);
 	ending(flag, k, &size);
 	return (size);
 }

@@ -6,7 +6,7 @@
 /*   By: tcherret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 17:49:46 by tcherret          #+#    #+#             */
-/*   Updated: 2019/01/03 18:46:26 by tcherret         ###   ########.fr       */
+/*   Updated: 2019/01/04 20:28:45 by tcherret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char		*ft_dtoa(long double nb, int size)
 
 	n = 0;
 	len = size + 2;
-	if (!(str = (char*)malloc(sizeof(*str) * (len + 1))))
+	if (!(str = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	str[len] = '\0';
 	str[0] = '.';
@@ -32,11 +32,10 @@ static char		*ft_dtoa(long double nb, int size)
 		nb *= 10;
 		str[n] = '0' + ((int)nb % 10);
 	}
-	ft_putstr(str);
 	return (str);
 }
 
-void			ft_putnbr_double(double nb, int size)
+void			ft_putnbr_double(long double nb, int size)
 {
 	char	*pint;
 	char	*test;
@@ -44,29 +43,48 @@ void			ft_putnbr_double(double nb, int size)
 	int		tmp;
 
 	n = 0;
-	pint = ft_itoa(nb);
-	ft_putstr(pint);
-	ft_putchar('\n');
+	pint = ft_itoa((unsigned long long)nb);
 	test = ft_dtoa(nb, size);
-	ft_putstr(test);
-	ft_putchar('\n');
 	pint = ft_strjoin_free(pint, test);
-	ft_putstr("bug2\n");
-	ft_putstr(pint);
-	while (pint[n] != '\0')
+	free(test);
+	while (pint && pint[n] != '\0')
 		n++;
-	ft_putstr("bug3\n");
 	n--;
 	tmp = n;
-	ft_putstr("bug4\n");
-	if (pint[n] >= '5' && pint[n] <= '9')
+	if (pint && pint[n] >= '5' && pint[n] <= '9')
 	{
 		while (pint[--n] == '9')
 			pint[n] = '0';
 		pint[n] += 1;
 	}
-	ft_putstr("bug55555\n");
 	pint[tmp] = '\0';
-	ft_putstr("bug\n");
 	ft_putnstr(pint, tmp);
+	free(pint);
+}
+
+void			ft_putnbr_long_double(long double nb, int size)
+{
+	char	*pint;
+	char	*test;
+	int		n;
+	int		tmp;
+
+	n = 0;
+	ft_putnbr_base((long long)nb, 10);
+	test = ft_dtoa(nb, size);
+	pint = ft_strjoin_free("", test);
+	free(test);
+	while (pint && pint[n] != '\0')
+		n++;
+	n--;
+	tmp = n;
+	if (pint && pint[n] >= '5' && pint[n] <= '9')
+	{
+		while (pint[--n] == '9')
+			pint[n] = '0';
+		pint[n] += 1;
+	}
+	pint[tmp] = '\0';
+	ft_putnstr(pint, tmp);
+	free(pint);
 }
